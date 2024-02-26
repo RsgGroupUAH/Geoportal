@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Grupo de Radiación y Sensores - Radiation and Sensing Group</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:title" content="Grupo de Radiación y Sensores - Radiation and Sensing Group">
+    <meta property="twitter:title" content="Grupo de Radiación y Sensores - Radiation and Sensing Group">
+    <meta itemprop="name" content="Grupo de Radiación y Sensores - Radiation and Sensing Group">
+
+    <link rel="canonical"
+        href="https://www.uah.es/es/investigacion/unidades-de-investigacion/grupos-de-investigacion/Grupo-de-Radiacion-y-Sensores-Radiation-and-Sensing-Group/">
+
+    <link rel="stylesheet" href="static/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="static/css/font-awsome.css" type="text/css">
+    <link rel="stylesheet" href="static/css/style.css" type="text/css">
+    <link rel="stylesheet" href="static/css/app.css" type="text/css">
+    <link rel="stylesheet" href="static/css/general.css" type="text/css">
+    <!-- open layer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css">
+    <!-- open layer EXT -->
+    <link rel="stylesheet" href="static/css/ol-ext.css">
+    <!--Side bar-->
+    <link rel="stylesheet" href="static/css/leaflet-sidebar.css" />
+
+
+
+    <link rel="shortcut icon" href="static/images/favicon.ico">
+
+</head>
+
+
+<body class=" header-fixed   desktop-device" style="" cz-shortcut-listen="true">
+    <div id="fb-root" class=" fb_reset">
+        <div style="position: absolute; top: -10000px; width: 0px; height: 0px;">
+            <div></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '447439938728510',
+                xfbml: true,
+                version: 'v2.1'
+            });
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/es_ES/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TCWKVX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="wrapper">
+        <div id="header-container">
+            <div class="header header-v4" id="mainnavigationuah">
+
+                <div class="topbar-v1 ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled top-v1-contacts">
+                                    <li class="dropdown"><a class="dropdown-toggle" href="#"
+                                            data-toggle="dropdown"><span class="fa fa-users">&nbsp;</span> Perfil</a>
+                                        <ul class="dropdown-menu languages hoverSelectorBlock">
+                                            <li><a title="Estudiantes"
+                                                    href="https://www.uah.es/es/estudiantes">Estudiantes</a></li>
+                                            <li><a title="PAS | PDI" href="https://www.uah.es/es/personal/">PAS |
+                                                    PDI</a></li>
+                                            <li><a href="https://www.uah.es/es/empresas/">Empresas</a></li>
+                                            <li><a href="https://alumni.uah.es/es/">AlumniUAH</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a class="dropdown-toggle" href="#"
+                                            data-toggle="dropdown"><span class="fa fa-reorder">&nbsp;</span> Accesos</a>
+                                        <ul class="dropdown-menu languages hoverSelectorBlock">
+                                            <li><a title="Aula Virtual" href="https://uah.blackboard.com/">Aula
+                                                    Virtual</a></li>
+                                            <li><a title="MI PORTAL" href="https://miportal.uah.es/" target="_blank"
+                                                    rel="noopener">MI PORTAL</a></li>
+                                            <li><a title="Intranet" href="https://intranet.uah.es/" target="_blank"
+                                                    rel="noopener">Intranet</a></li>
+                                            <li><a title="Correo" href="https://outlook.office365.com/uah.es"
+                                                    target="_blank" rel="noopener">Correo</a></li>
+                                            <li><a
+                                                    href="https://www.uah.es/es/vivir-la-uah/servicios/servicios-tic/#cuentas-y-contrasenas-de-usuario">Cuentas
+                                                    de usuario</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="idioma" style="display: none; visibility: hidden;"><a class="idioma"
+                                            lang="en" href="#"><span class="fa fa-flag">&nbsp;</span> English</a></li>
+                                    <li class="sinidio">Español</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled top-v1-data">
+                                    <li><a href="/geoportal/maps.html"><span class="fa fa-home"><em
+                                                    class="textmenarr">Inicio</em></span></a></li>
+                                    <li class="social-icon"><a title="Ir a la página oficial de Facebook"
+                                            href="https://www.facebook.com/UniversidadDeAlcala" target="_blank"
+                                            rel="noopener"><em class="fa fa-facebook"><em class="textmenarr">Facebook
+                                                    UAH</em></em></a></li>
+                                    <li class="social-icon"><a title="Ir a la página oficial de Twitter"
+                                            href="https://twitter.com/uahes" target="_blank" rel="noopener"><em
+                                                class="fa fa-twitter"><em class="textmenarr">Twitter UAH</em></em></a>
+                                    </li>
+                                    <li class="social-icon"><a title="Ir a la página oficial de Instagram"
+                                            href="https://www.instagram.com/uahes/" target="_blank" rel="noopener"><em
+                                                class="fa fa-instagram"><em class="textmenarr">Instagram
+                                                    UAH</em></em></a></li>
+                                    <li class="social-icon"><a title="Ir a la página oficial de Youtube"
+                                            href="https://www.youtube.com/channel/UCS7SpS0Y0Av0AM3PZ0d4FNg"
+                                            target="_blank" rel="noopener"><em class="fa fa-youtube"><em
+                                                    class="textmenarr">Youtube UAH</em></em></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="navigation" class="navbar navbar-default">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <div class="navbar-brand">
+                                <a class="navbar-brand" href="/" target="_self">
+                                    <img src="static/images/uah_logo.png" alt="Imagen del escudo de la UAH" />
+                                </a>
+                                <a class="navbar-brand vcani" href="https://25aniversariopatrimonio.uah.es/es/"
+                                    target="_self">
+                                    <img src="static/images/logoAniversario_azul.png" alt="UAH" />
+                                </a>
+                                <a class="navbar-brand vcani" href="https://www.uah.es/es/vivir-la-uah/participacion/cooperacion-voluntariado/la-uah-con-ucrania/"
+                                    target="_blank"><img class="rsg" style="width: 66px;top: 7px;"
+                                        src="static/images/Logo_grupo_opt.png" alt="´Grupo de radiacion y sensores"></a>
+                            </div>
+                        </div>
+                        <h1 class="tituloInvestigacion text-left margin-top-20"><a href="/">GEOPORTAL
+                                GRUPO DE RADIACIÓN Y SENSORES</a></h1>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="content-interior" id="content-interior">
+            <div id="wrapper-container">
+                <div class="template-container  block-subheader-int ">
+                    <div class="wrapper">
+                        <div class="template-container-box">
+                            <div class="layout-container ">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="wrapper">
+                                            <div class="layout-container-box">
+                                                <div class="box-parent   ">
+                                                    <div class="no-box ">
+                                                        <div class="row">
+
+                                                            <div class="container-fluid col-sm-12  ">
+                                                                <div id="imprimible">
+                                                                    <div id="map" class="map">
+                                                                        
+                                                                    </div>
+                                                                    <!--COMIENZO MENU HERRAMIENTAS SUPERIOR-->
+                                                                    <div class="ol-control position-button custom-ol-control" title="Ver posicion del ratón en coordenadas">
+                                                                        <button type="button" id="position-button" class="control-menu-button  fa fa-map-marker fa-4x button"></button>
+                                                                        <div class="tooltip">
+                                                                            <span class="tooltiptext">Ver posicion del ratón en coordenadas</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="ol-control print-button custom-ol-control" title="Imprimir en PDF">
+                                                                        <button type="button" id="print-button" class="control-menu-button  fa fa-file-pdf-o  fa-4x button"></button>
+                                                                        <div class="tooltip">
+                                                                            <span class="tooltiptext">Imprimir en PDF</span>
+                                                                           
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="ol-control tools-button custom-ol-control" title="Herramientas">
+                                                                        <button type="button" id="tools-button" class="control-menu-button  fa fa-gears fa-4x button"></button>
+                                                                        <div class="tooltip">
+                                                                            <span class="tooltiptext">Herramientas</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="ol-control contact-button custom-ol-control" title="Contacto">
+                                                                        <button type="button" id="contact-button" class="control-menu-button  fa fa-comments fa-4x button"></button>
+                                                                        <div class="tooltip">
+                                                                            <span class="tooltiptext">Contacto</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="ol-control info-button custom-ol-control" title="Información">
+                                                                        <button type="button" id="info-button" class="control-menu-button  fa fa-info fa-4x button"></button>
+                                                                        <div class="tooltip">
+                                                                            <span class="tooltiptext">Información</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--FIN MENU HERRAMIENTAS SUPERIOR-->
+                                                                    <!--COMIENZO PANELES DE CONTROLES-->
+                                                                    <div id="layer-control-parent" class="layer-control-parent"></div>
+                                                                    <div id="position-container"
+                                                                        class="position-container hidden custom-control-panel">
+                                                                        
+                                                                        <div
+                                                                            style="float:left;padding: 5px;font-weight: bold;">
+                                                                            Posición ratón</div>
+                                                                        <div id="mouse-position"
+                                                                            style="float:right;padding: 5px;"></div>
+                                                                        <div>
+                                                                            <form>
+                                                                                <label for="projection"
+                                                                                    style="float:left;padding: 5px;">Proyección</label>
+                                                                                <select id="projection"
+                                                                                    style="float:right;padding: 5px;">
+                                                                                    <option value="EPSG:25830">EPSG:25830
+                                                                                    </option>
+                                                                                    <option value="EPSG:4326">EPSG:4326
+                                                                                    </option>
+                                                                            
+                                                                                </select>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div id="legend-container" class="legend-container hidden custom-control-panel">
+                                                                        <label for="info">Valor <i class="fa fa-minus-square"></i></label>
+                                                                    </div>
+                                                                    <div id="value_layer" class="hidden" >
+                                                                        <label for="info"></label>
+                                                                    </div>
+                                                                    <div id="export_pdf" class="export_pdf hidden custom-control-panel">
+                                                                        <form class="form">
+                                                                            <label for="format">Tamaño de página </label>
+                                                                            <select id="format">
+                                                                            <option value="a4" selected>A4</option>
+                                                                            <option value="a5">A5 (fast)</option>
+                                                                            </select>
+                                                                            <label for="resolution">Resolución </label>
+                                                                            <select id="resolution">
+                                                                            <option value="72">72 dpi (fast)</option>
+                                                                            <option value="150">150 dpi</option>
+                                                                            <option value="300">300 dpi (slow)</option>
+                                                                            </select>
+                                                                        </form>
+                                                                        <button id="export-pdf" >Exportar a  PDF</button>
+                                                                    </div>
+                                                                    <div id="tools-panel" class="tools-panel hidden custom-control-panel">
+                                                                        <div class="ol-layerswitcher ol-unselectable ol-control ol-collapsed ol-forceopen" style="pointer-events: auto; height: auto;">                                                                          
+                                                                            <div class="panel-container overflow-hidden">
+                                                                                <span id="close-tools-button" class="fa fa-close close"></span>
+                                                                                <ul class="panel" style="top: 0px;">
+                                                                                    <h2>Herramientas Geoportal</h2>
+                                                                                    <li class="ol-visible ol-layer-group measure-tool">
+                                                                                        <h3 class="sidebar-header">
+                                                                                            Medidas
+                                                                                        </h3>
+                                                                                        <br />
+                                                                        
+                                                                                        <p>En este apartado es posible realizar medidas tanto lineales como poligonales sobre el mapa, la medida entre puntos se hace utilizando el método geodésico</p>
+                                                                        
+                                                                                        <p>This section allows you to take both linear and polygonal measurements on the map. The measurement between points is done using the geodesic method.</p>
+                                                                                        <div id="measure" class="ol-measure">
+                                                                                            <div class="ol-measure-label">
+                                                                                                Medidas:
+                                                                                            </div>
+                                                                                            <ul class="ol-measure-list"></ul>
+                                                                                            <div id="info">&nbsp;</div>
+                                                                                        </div>
+                                                                        
+                                                                                        <form>
+                                                                                            <div>
+                                                                                                <label for="type">Tipo de medida</label>
+                                                                                                <select id="type" class="measure-input">
+                                                                                                    <option value="LineString"> Longitud (línea recta)</option>
+                                                                                                    <option value="Polygon">Área (Polígono) </option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <div>
+                                                                                                <label for="segments">Mostrar longitud de segmentos</label>
+                                                                                                <input type="checkbox" id="segments" class="measure-input" checked />
+                                                                                            </div>
+                                                                                            <div>
+                                                                                                <label for="clear">Limpiar medidas anteriorres</label>
+                                                                                                <input type="checkbox" id="clear" class="measure-input" checked />
+                                                                                            </div>
+                                                                                            <div>
+                                                                                                <label for="active">Habilitar medidas</label>
+                                                                                                <input type="checkbox" id="active" class="measure-input"/>
+                                                                                            </div>
+                                                                        
+                                                                                            <input type="button" id="erase" class="measure-input tool-input-button"value="Borrar medidas" />
+                                                                                        </form>
+                                                                                    </li>
+                                                                                    <li class="ol-visible ol-layer-group">
+                                                                                        <h3 class="sidebar-header">
+                                                                                            Dibujos
+                                                                                        </h3>
+                                                                                        <br />
+                                                                        
+                                                                                        <p>En este apartado es posible realizar dibujos poligonales sobre el mapa</p>
+                                                                        
+                                                                                        <p>In this section, it is possible to create polygonal drawings on the map.</p>
+                                                                        
+                                                                                        <form>
+                                                                                            <label for="drawType">Tipo de dibujo &nbsp;</label>
+                                                                                            <select id="drawType" class="draw-input">
+                                                                                                <option value="Point">Punto </option>
+                                                                                                <option value="LineString">Linea </option>
+                                                                                                <option value="Polygon">Polígono </option>
+                                                                                                <option value="Circle">Círculo </option>
+                                                                                            </select>
+                                                                        
+                                                                                            <div>
+                                                                                                <label for="active">Mano alzada</label>
+                                                                                                <input type="checkbox" id="freeHand" class="draw-input" />
+                                                                                            </div>
+                                                                        
+                                                                                            <div>
+                                                                                                <label for="active">Habilitar dibujos</label>
+                                                                                                <input type="checkbox" id="activeDrawing" class="draw-input"/>
+                                                                                            </div>
+                                                                        
+                                                                                            <input type="button" id="eraseDrawings" class="draw-input tool-input-button" value="Borrar Dibujos" />
+                                                                                        </form>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    <div id="contact-panel" class="contact-panel hidden custom-control-panel">
+                                                                        <div class="ol-layerswitcher ol-unselectable ol-control ol-collapsed ol-forceopen" style="pointer-events: auto; height: auto;">                                                                          
+                                                                            <div class="panel-container overflow-hidden">
+                                                                                <span id="close-contact-button" class="fa fa-close close"></span>
+                                                                                <ul class="panel" style="top: 0px;">
+                                                                                    <h2>Contacto</h2>
+                                                                                    <li class="ol-visible ol-layer-group measure-tool">
+                                                                                        <h3 class="sidebar-header">
+                                                                                            Correo
+                                                                                        </h3>
+                                                                                        <br />
+                                                                        
+                                                                                        <p><a href="mailto:rsg.group@uah.es?Subject=Cuestionario%20desde%20web%20map"
+                                                                                            role="tab"> <i
+                                                                                                class="fa fa-envelope"></i>rsg.group@uah.es</a></p>
+ 
+                                                                                    </li>
+                                                                                    <li class="ol-visible ol-layer-group">
+                                                                                        <h3 class="sidebar-header">
+                                                                                            GitHub
+                                                                                        </h3>
+                                                                                        <br />
+                                                
+                                                                                        <p><a href="https://github.com/RsgGroupUAH" target="_blank"
+                                                                                            role="tab"> <i
+                                                                                                class="fa fa-github"></i>Repositorio Grupo Radiación y Sensores</a></p>
+
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    <div id="info-panel" class="info-panel hidden custom-control-panel">
+                                                                        <div class="ol-layerswitcher ol-unselectable ol-control ol-collapsed ol-forceopen" style="pointer-events: auto; height: auto;">                                                                          
+                                                                            <div class="panel-container overflow-hidden">
+                                                                                <span id="close-info-button" class="fa fa-close close"></span>
+                                                                                <ul class="panel" style="top: 0px;">
+                                                                                    <h2>Presentación </h2> 
+                                                                                    <li class="ol-visible ol-layer-group measure-tool">
+                                                                                        <h3 class="sidebar-header">
+                                                                                            Grupo Radiación y Sensores
+                                                                                        </h3>
+                                                                                        <br />
+                                                                        
+                                                                                        <p>Bienvenid@s al visor web oficial del
+                                                                                            grupo de
+                                                                                            investigación en radiación y sensores de
+                                                                                            la
+                                                                                            Universidad de Alcalá. En el podrás
+                                                                                            visualizar toda la
+                                                                                            información geoespacial empleada en las
+                                                                                            investigaciones sobre contaminación
+                                                                                            electromagnética,
+                                                                                            realizadas desde el año 2017, hasta la
+                                                                                            actualidad en el municipio madrileño de
+                                                                                            Meco.</p>
+                                                                                            <p>
+                                                                                            Os dejamos el link a las publicaciones
+                                                                                            vinculadas a
+                                                                                            estos datos:
+                                                                                            -
+                                                                                            Esperamos que toda esta información os
+                                                                                            sea de utilidad.
+                                                                                            Cualquier duda no dudeís en contactar
+                                                                                            con nosotros a
+                                                                                            través del correo electrónico habilitado
+                                                                                            más
+                                                                                            abajo.
+                                                                                            </p> 
+                                                                                    </li>
+                                                                                    <li class="ol-visible ol-layer-group measure-tool">
+                                                                                        <h3 class="sidebar-header">
+                                                                                            Radiation and Sensors Group
+                                                                                        </h3>
+                                                                                        <br />
+                                                                        
+                                                                                        <p>
+                                                                                            Hello! 👋
+                                                                                            <br>
+                                                                                            Welcome to the official web viewer of
+                                                                                            the radiation and
+                                                                                            sensor research group of the University
+                                                                                            of
+                                                                                            Alcalá. In it you will be able to view
+                                                                                            all the
+                                                                                            geospatial information used in the
+                                                                                            investigations on
+                                                                                            electromagnetic pollution carried out
+                                                                                            from the year 2017
+                                                                                            to the present in the Madrid
+                                                                                            municipality
+                                                                                            of Meco.</p>
+                                                                                            <p>
+                                                                                            We leave you the link to the
+                                                                                            publications linked to this
+                                                                                            data:
+                                                                                            -
+                                                                                            We hope that all this information is
+                                                                                            useful to you.
+                                                                                            Any questions do not hesitate to contact
+                                                                                            us through the
+                                                                                            email enabled below.
+                                                                                            </p>       
+                                                                                            <br><br><br>
+                                                                                            
+ 
+                                                                                    </li>
+                                                                                    <p><img
+                                                                                        src="static/images/cutrephoto.png"></img></p>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                     <!--FIN PANELES DE CONTROLES-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<!--Jquery-->
+<script src="static/js/jquery-3.6.4.js "></script>
+<!--Bootstrap-->
+<script type="text/javascript" src="static/js/bootstrap.js"></script>
+<!--openlayer-->
+<script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
+
+<!--proj4-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.14/proj4.js"></script>
+<!-- PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script type="module" src="static/js/map-layers.js"></script>
+<!--openlayer-EXT-->
+<script type="module" src="static/js/ol-ext.js"></script>
+<!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
+<script src="https://cdn.jsdelivr.net/npm/elm-pep@1.0.6/dist/elm-pep.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/geotiff@2.0.7/dist-browser/geotiff.js"></script>
+
+<script type="module" src="static/js/map-controls.js"></script>
+<script type="module" src="static/js/map-measures.js"></script>
+<script type="module" src="static/js/map-drawing.js"></script>
+<!-- <script type="module" src="static/js/map-tooltips.js"></script> -->
+<script type="module" src="static/js/map-wms-control.js"></script>
+<script type="module" src="static/js/map-pdf.js"></script>
+
+</html>
