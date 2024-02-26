@@ -1,4 +1,4 @@
-# uah-gis-explorer-html
+# GEOPORTAL
 
 Este repositorio está destinado a tner el código del desarrollo del TFG de creación de aplicación visora de mapas GIS del departamento de radiacón y electromagnetismo de la UAH.
 
