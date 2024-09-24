@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="static/css/app.css" type="text/css">
     <link rel="stylesheet" href="static/css/general.css" type="text/css">
     <!-- open layer -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css">
+    <link rel="stylesheet" href="static/css/ol.css">
     <!-- open layer EXT -->
     <link rel="stylesheet" href="static/css/ol-ext.css">
     <!--Side bar-->
@@ -36,101 +36,20 @@
 </head>
 
 
-<body class=" header-fixed   desktop-device" style="" cz-shortcut-listen="true">
+<body class=" header-fixed   desktop-device"  cz-shortcut-listen="true">
     <div id="fb-root" class=" fb_reset">
         <div style="position: absolute; top: -10000px; width: 0px; height: 0px;">
             <div></div>
         </div>
     </div>
-    <script type="text/javascript">
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '447439938728510',
-                xfbml: true,
-                version: 'v2.1'
-            });
-        };
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/es_ES/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+    
 
 
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TCWKVX" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+
 
     <div class="wrapper">
         <div id="header-container">
-            <div class="header header-v4" id="mainnavigationuah">
-
-                <div class="topbar-v1 ">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="list-unstyled top-v1-contacts">
-                                    <li class="dropdown"><a class="dropdown-toggle" href="#"
-                                            data-toggle="dropdown"><span class="fa fa-users">&nbsp;</span> Perfil</a>
-                                        <ul class="dropdown-menu languages hoverSelectorBlock">
-                                            <li><a title="Estudiantes"
-                                                    href="https://www.uah.es/es/estudiantes">Estudiantes</a></li>
-                                            <li><a title="PAS | PDI" href="https://www.uah.es/es/personal/">PAS |
-                                                    PDI</a></li>
-                                            <li><a href="https://www.uah.es/es/empresas/">Empresas</a></li>
-                                            <li><a href="https://alumni.uah.es/es/">AlumniUAH</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a class="dropdown-toggle" href="#"
-                                            data-toggle="dropdown"><span class="fa fa-reorder">&nbsp;</span> Accesos</a>
-                                        <ul class="dropdown-menu languages hoverSelectorBlock">
-                                            <li><a title="Aula Virtual" href="https://uah.blackboard.com/">Aula
-                                                    Virtual</a></li>
-                                            <li><a title="MI PORTAL" href="https://miportal.uah.es/" target="_blank"
-                                                    rel="noopener">MI PORTAL</a></li>
-                                            <li><a title="Intranet" href="https://intranet.uah.es/" target="_blank"
-                                                    rel="noopener">Intranet</a></li>
-                                            <li><a title="Correo" href="https://outlook.office365.com/uah.es"
-                                                    target="_blank" rel="noopener">Correo</a></li>
-                                            <li><a
-                                                    href="https://www.uah.es/es/vivir-la-uah/servicios/servicios-tic/#cuentas-y-contrasenas-de-usuario">Cuentas
-                                                    de usuario</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="idioma" style="display: none; visibility: hidden;"><a class="idioma"
-                                            lang="en" href="#"><span class="fa fa-flag">&nbsp;</span> English</a></li>
-                                    <li class="sinidio">Español</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-unstyled top-v1-data">
-                                    <li><a href="/geoportal/maps.html"><span class="fa fa-home"><em
-                                                    class="textmenarr">Inicio</em></span></a></li>
-                                    <li class="social-icon"><a title="Ir a la página oficial de Facebook"
-                                            href="https://www.facebook.com/UniversidadDeAlcala" target="_blank"
-                                            rel="noopener"><em class="fa fa-facebook"><em class="textmenarr">Facebook
-                                                    UAH</em></em></a></li>
-                                    <li class="social-icon"><a title="Ir a la página oficial de Twitter"
-                                            href="https://twitter.com/uahes" target="_blank" rel="noopener"><em
-                                                class="fa fa-twitter"><em class="textmenarr">Twitter UAH</em></em></a>
-                                    </li>
-                                    <li class="social-icon"><a title="Ir a la página oficial de Instagram"
-                                            href="https://www.instagram.com/uahes/" target="_blank" rel="noopener"><em
-                                                class="fa fa-instagram"><em class="textmenarr">Instagram
-                                                    UAH</em></em></a></li>
-                                    <li class="social-icon"><a title="Ir a la página oficial de Youtube"
-                                            href="https://www.youtube.com/channel/UCS7SpS0Y0Av0AM3PZ0d4FNg"
-                                            target="_blank" rel="noopener"><em class="fa fa-youtube"><em
-                                                    class="textmenarr">Youtube UAH</em></em></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="header header-v4" id="mainnavigationuah"> 
                 <div role="navigation" class="navbar navbar-default">
                     <div class="container">
                         <div class="navbar-header">
@@ -138,10 +57,7 @@
                                 <a class="navbar-brand" href="/" target="_self">
                                     <img src="static/images/uah_logo.png" alt="Imagen del escudo de la UAH" />
                                 </a>
-                                <a class="navbar-brand vcani" href="https://25aniversariopatrimonio.uah.es/es/"
-                                    target="_self">
-                                    <img src="static/images/logoAniversario_azul.png" alt="UAH" />
-                                </a>
+                                
                                 <a class="navbar-brand vcani" href="https://www.uah.es/es/vivir-la-uah/participacion/cooperacion-voluntariado/la-uah-con-ucrania/"
                                     target="_blank"><img class="rsg" style="width: 66px;top: 7px;"
                                         src="static/images/Logo_grupo_opt.png" alt="´Grupo de radiacion y sensores"></a>
@@ -234,11 +150,16 @@
                                                                             </form>
                                                                         </div>
                                                                     </div>
-                                                                    <div id="legend-container" class="legend-container hidden custom-control-panel">
-                                                                        <label for="info">Valor <i class="fa fa-minus-square"></i></label>
-                                                                    </div>
-                                                                    <div id="value_layer" class="hidden" >
-                                                                        <label for="info"></label>
+                                                                    <div id="value_layer" class="value_layer hidden custom-control-panel">
+                                                                        <div id="value_layer_title" style="font-weight: bold; font-size: larger;">
+                                                                            Información de capa: 
+                                                                            <span id="value_layer_name"></span>
+                                                                            &nbsp;
+                                                                        </div>
+                                                                        <label for="legend">Leyenda</label>
+                                                                        <div id="legend"> &nbsp;</div>
+                                                                        <label for="value">Valor</label>
+                                                                        <div id="value"> &nbsp;</div>
                                                                     </div>
                                                                     <div id="export_pdf" class="export_pdf hidden custom-control-panel">
                                                                         <form class="form">
@@ -476,21 +397,24 @@
 </body>
 <!--Jquery-->
 <script src="static/js/jquery-3.6.4.js "></script>
+
 <!--Bootstrap-->
 <script type="text/javascript" src="static/js/bootstrap.js"></script>
+
 <!--openlayer-->
-<script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
+<script src="static/js/ol.js"></script>
 
 <!--proj4-->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.14/proj4.js"></script>
+<script type="text/javascript" src="static/js/proj4.js"></script>
+
 <!-- PDF -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script src="static/js/jspdf.umd.min.js"></script>
 <script type="module" src="static/js/map-layers.js"></script>
 <!--openlayer-EXT-->
 <script type="module" src="static/js/ol-ext.js"></script>
 <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
-<script src="https://cdn.jsdelivr.net/npm/elm-pep@1.0.6/dist/elm-pep.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/geotiff@2.0.7/dist-browser/geotiff.js"></script>
+<script src="static/js/elm-pep.js"></script>
+<script src="static/js/geotiff.js"></script>
 
 <script type="module" src="static/js/map-controls.js"></script>
 <script type="module" src="static/js/map-measures.js"></script>

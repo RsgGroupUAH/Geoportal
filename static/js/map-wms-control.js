@@ -3,7 +3,7 @@ import { map } from "./map-layers.js";
 
 // Define un objeto con las URL de los servicios WMS
 const services = {
-  'UAH-geoserver': 'http://localhost/geoserver/ows?',
+  'UAH-geoserver': 'http://geoserver.uah.es:8080/geoserver/ows?',
   'IDEE COPERNICUS': 'https://servicios.idee.es/wms/copernicus-landservice-spain?',
   'CODIGOS POSTALES': 'https://www.cartociudad.es/wms-inspire/direcciones-ccpp',
   'IDEE HIDROGRAFIA': 'https://servicios.idee.es/wms-inspire/hidrografia',
@@ -67,12 +67,21 @@ var cap = new ol.control.WMSCapabilities({
   target: $('.options').get(0),
   cors: true,
   optional: 'token',
-  services: services,
-  trace: false,
-  placeholder: 'URL del servicio WMS...',
-  searchLabel: 'Buscar',
-  loadLabel: 'Cargar',
-  title: 'Cargar capas de un servicio WMS'
+  services: {
+    'UAH-geoserver': 'http://geoserver.uah.es:8080/geoserver/ows?',
+    'IDEE COPERNICUS': 'https://servicios.idee.es/wms/copernicus-landservice-spain?',
+    'CODIGOS POSTALES': 'https://www.cartociudad.es/wms-inspire/direcciones-ccpp',
+    'IDEE HIDROGRAFIA': 'https://servicios.idee.es/wms-inspire/hidrografia',
+    'IGN': 'https://www.ign.es/wms-inspire/ign-base',
+    'TOPOGRAFIA': 'https://servicios.idee.es/wms-inspire/mdt',
+    'SATELITE HISTORICOS':'https://wms-satelites-historicos.idee.es/satelites-historicos',
+    'OCUPACION DE SUELO':'https://servicios.idee.es/wms-inspire/ocupacion-suelo',
+    'TRANSPORTE': 'https://servicios.idee.es/wms-inspire/transportes',
+    'EOX':'https://tiles.maps.eox.at/wms?',
+    'GEBCO':'https://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv',
+  },
+  // Show trace in the console
+  trace: true
 });
 
 map.addControl(cap);

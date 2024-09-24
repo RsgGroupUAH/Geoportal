@@ -5928,7 +5928,8 @@ ol.control.LayerSwitcher = class olcontrolLayerSwitcher extends ol.control.Contr
       this.button = ol.ext.element.create('BUTTON', {
         type: 'button',
         parent: headerDiv,
-        className: 'col-layer-switcher-header-button control-menu-button fa fa-database fa-4x'
+        className: 'col-layer-switcher-header-button control-menu-button fa fa-database fa-4x',
+        title: 'Control de capas'
       })
       this.button.addEventListener('touchstart', function (e) {
         element.classList.toggle('ol-forceopen')
@@ -7841,7 +7842,8 @@ ol.control.Dialog = class olcontrolDialog extends ol.control.Control {
     if (options.fullscreen) options.target = document.body;
     var element = ol.ext.element.create('DIV', {
       className: ((options.className || '') + (options.zoom ? ' ol-zoom' : '') + ' ol-ext-dialog').trim()
-    })
+    });
+
     super({
       element: element,
       target: options.target
@@ -18163,6 +18165,9 @@ ol.control.WMSCapabilities = class olcontrolWMSCapabilities extends ol.control.B
         self.showDialog()
       }
     }
+    if(buttonOptions.title === undefined) {
+      buttonOptions.title = 'Controles de servicios WMS'
+    }
     super(buttonOptions);
     var self = this;
     this._proxy = options.proxy
@@ -18217,7 +18222,9 @@ ol.control.WMSCapabilities = class olcontrolWMSCapabilities extends ol.control.B
         options.onselect(e.layer, e.options)
       })
     }
+
   }
+  
   /** Get service parser
    */
   _getParser() {
