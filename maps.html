@@ -19,15 +19,15 @@
 
     <link rel="stylesheet" href="static/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="static/css/font-awsome.css" type="text/css">
-    <link rel="stylesheet" href="static/css/style.css" type="text/css">
+
     <link rel="stylesheet" href="static/css/app.css" type="text/css">
-    <link rel="stylesheet" href="static/css/general.css" type="text/css">
     <!-- open layer -->
     <link rel="stylesheet" href="static/css/ol.css">
     <!-- open layer EXT -->
     <link rel="stylesheet" href="static/css/ol-ext.css">
     <!--Side bar-->
     <link rel="stylesheet" href="static/css/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="static/css/style.css" type="text/css">
 
 
 
@@ -37,361 +37,328 @@
 
 
 <body class=" header-fixed   desktop-device"  cz-shortcut-listen="true">
-    <div id="fb-root" class=" fb_reset">
-        <div style="position: absolute; top: -10000px; width: 0px; height: 0px;">
-            <div></div>
-        </div>
-    </div>
-    
-
-
-
 
     <div class="wrapper">
-        <div id="header-container">
-            <div class="header header-v4" id="mainnavigationuah"> 
-                <div role="navigation" class="navbar navbar-default">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <div class="navbar-brand">
-                                <a class="navbar-brand" href="/" target="_self">
-                                    <img src="static/images/uah_logo.png" alt="Imagen del escudo de la UAH" />
-                                </a>
-                                
-                                <a class="navbar-brand vcani" href="https://www.uah.es/es/vivir-la-uah/participacion/cooperacion-voluntariado/la-uah-con-ucrania/"
-                                    target="_blank"><img class="rsg" style="width: 66px;top: 7px;"
-                                        src="static/images/Logo_grupo_opt.png" alt="´Grupo de radiacion y sensores"></a>
-                            </div>
-                        </div>
-                        <h1 class="tituloInvestigacion text-left margin-top-20"><a href="/">GEOPORTAL
-                                GRUPO DE RADIACIÓN Y SENSORES</a></h1>
-                    </div>
-
-                    <div class="clearfix"></div>
-
+        <div id="header-container" class="header-rsg">
+            <div class="container">
+                <div class="logos">
+                    <a class="logo-uah" href="/" target="_self">
+                        <img class="img-logo-uah"" src="static/images/uah_logo.png" alt="Imagen del escudo de la UAH" />
+                    </a>
+                    
+                    <a class="logo-grupo" href="https://www.uah.es/es/investigacion/unidades-de-investigacion/grupos-de-investigacion/Grupo-de-Radiacion-y-Sensores-Radiation-and-Sensing-Group/"
+                        target="_blank"><img class="rsg" style="width: 66px;top: 7px;"
+                            src="static/images/Logo_grupo_opt.png" alt="´Grupo de radiacion y sensores"></a>
                 </div>
+                <h1 class="tituloInvestigacion">GEOPORTAL
+                        GRUPO DE RADIACIÓN Y SENSORES</h1>
             </div>
+
+            <div class="clearfix"></div>
+            
         </div>
 
         <div class="content-interior" id="content-interior">
-            <div id="wrapper-container">
-                <div class="template-container  block-subheader-int ">
-                    <div class="wrapper">
-                        <div class="template-container-box">
-                            <div class="layout-container ">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="wrapper">
-                                            <div class="layout-container-box">
-                                                <div class="box-parent   ">
-                                                    <div class="no-box ">
-                                                        <div class="row">
-
-                                                            <div class="container-fluid col-sm-12  ">
-                                                                <div id="imprimible">
-                                                                    <div id="map" class="map">
-                                                                        
-                                                                    </div>
-                                                                    <!--COMIENZO MENU HERRAMIENTAS SUPERIOR-->
-                                                                    <div class="ol-control position-button custom-ol-control" title="Ver posicion del ratón en coordenadas">
-                                                                        <button type="button" id="position-button" class="control-menu-button  fa fa-map-marker fa-4x button"></button>
-                                                                        <div class="tooltip">
-                                                                            <span class="tooltiptext">Ver posicion del ratón en coordenadas</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="ol-control print-button custom-ol-control" title="Imprimir en PDF">
-                                                                        <button type="button" id="print-button" class="control-menu-button  fa fa-file-pdf-o  fa-4x button"></button>
-                                                                        <div class="tooltip">
-                                                                            <span class="tooltiptext">Imprimir en PDF</span>
-                                                                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="ol-control tools-button custom-ol-control" title="Herramientas">
-                                                                        <button type="button" id="tools-button" class="control-menu-button  fa fa-gears fa-4x button"></button>
-                                                                        <div class="tooltip">
-                                                                            <span class="tooltiptext">Herramientas</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="ol-control contact-button custom-ol-control" title="Contacto">
-                                                                        <button type="button" id="contact-button" class="control-menu-button  fa fa-comments fa-4x button"></button>
-                                                                        <div class="tooltip">
-                                                                            <span class="tooltiptext">Contacto</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="ol-control info-button custom-ol-control" title="Información">
-                                                                        <button type="button" id="info-button" class="control-menu-button  fa fa-info fa-4x button"></button>
-                                                                        <div class="tooltip">
-                                                                            <span class="tooltiptext">Información</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--FIN MENU HERRAMIENTAS SUPERIOR-->
-                                                                    <!--COMIENZO PANELES DE CONTROLES-->
-                                                                    <div id="layer-control-parent" class="layer-control-parent"></div>
-                                                                    <div id="position-container"
-                                                                        class="position-container hidden custom-control-panel">
-                                                                        
-                                                                        <div
-                                                                            style="float:left;padding: 5px;font-weight: bold;">
-                                                                            Posición ratón</div>
-                                                                        <div id="mouse-position"
-                                                                            style="float:right;padding: 5px;"></div>
-                                                                        <div>
-                                                                            <form>
-                                                                                <label for="projection"
-                                                                                    style="float:left;padding: 5px;">Proyección</label>
-                                                                                <select id="projection"
-                                                                                    style="float:right;padding: 5px;">
-                                                                                    <option value="EPSG:25830">EPSG:25830
-                                                                                    </option>
-                                                                                    <option value="EPSG:4326">EPSG:4326
-                                                                                    </option>
-                                                                            
-                                                                                </select>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div id="value_layer" class="value_layer hidden custom-control-panel">
-                                                                        <div id="value_layer_title" style="font-weight: bold; font-size: larger;">
-                                                                            Información de capa: 
-                                                                            <span id="value_layer_name"></span>
-                                                                            &nbsp;
-                                                                        </div>
-                                                                        <label for="legend">Leyenda</label>
-                                                                        <div id="legend"> &nbsp;</div>
-                                                                        <label for="value">Valor</label>
-                                                                        <div id="value"> &nbsp;</div>
-                                                                    </div>
-                                                                    <div id="export_pdf" class="export_pdf hidden custom-control-panel">
-                                                                        <form class="form">
-                                                                            <label for="format">Tamaño de página </label>
-                                                                            <select id="format">
-                                                                            <option value="a4" selected>A4</option>
-                                                                            <option value="a5">A5 (fast)</option>
-                                                                            </select>
-                                                                            <label for="resolution">Resolución </label>
-                                                                            <select id="resolution">
-                                                                            <option value="72">72 dpi (fast)</option>
-                                                                            <option value="150">150 dpi</option>
-                                                                            <option value="300">300 dpi (slow)</option>
-                                                                            </select>
-                                                                        </form>
-                                                                        <button id="export-pdf" >Exportar a  PDF</button>
-                                                                    </div>
-                                                                    <div id="tools-panel" class="tools-panel hidden custom-control-panel">
-                                                                        <div class="ol-layerswitcher ol-unselectable ol-control ol-collapsed ol-forceopen" style="pointer-events: auto; height: auto;">                                                                          
-                                                                            <div class="panel-container overflow-hidden">
-                                                                                <span id="close-tools-button" class="fa fa-close close"></span>
-                                                                                <ul class="panel" style="top: 0px;">
-                                                                                    <h2>Herramientas Geoportal</h2>
-                                                                                    <li class="ol-visible ol-layer-group measure-tool">
-                                                                                        <h3 class="sidebar-header">
-                                                                                            Medidas
-                                                                                        </h3>
-                                                                                        <br />
-                                                                        
-                                                                                        <p>En este apartado es posible realizar medidas tanto lineales como poligonales sobre el mapa, la medida entre puntos se hace utilizando el método geodésico</p>
-                                                                        
-                                                                                        <p>This section allows you to take both linear and polygonal measurements on the map. The measurement between points is done using the geodesic method.</p>
-                                                                                        <div id="measure" class="ol-measure">
-                                                                                            <div class="ol-measure-label">
-                                                                                                Medidas:
-                                                                                            </div>
-                                                                                            <ul class="ol-measure-list"></ul>
-                                                                                            <div id="info">&nbsp;</div>
-                                                                                        </div>
-                                                                        
-                                                                                        <form>
-                                                                                            <div>
-                                                                                                <label for="type">Tipo de medida</label>
-                                                                                                <select id="type" class="measure-input">
-                                                                                                    <option value="LineString"> Longitud (línea recta)</option>
-                                                                                                    <option value="Polygon">Área (Polígono) </option>
-                                                                                                </select>
-                                                                                            </div>
-                                                                                            <div>
-                                                                                                <label for="segments">Mostrar longitud de segmentos</label>
-                                                                                                <input type="checkbox" id="segments" class="measure-input" checked />
-                                                                                            </div>
-                                                                                            <div>
-                                                                                                <label for="clear">Limpiar medidas anteriorres</label>
-                                                                                                <input type="checkbox" id="clear" class="measure-input" checked />
-                                                                                            </div>
-                                                                                            <div>
-                                                                                                <label for="active">Habilitar medidas</label>
-                                                                                                <input type="checkbox" id="active" class="measure-input"/>
-                                                                                            </div>
-                                                                        
-                                                                                            <input type="button" id="erase" class="measure-input tool-input-button"value="Borrar medidas" />
-                                                                                        </form>
-                                                                                    </li>
-                                                                                    <li class="ol-visible ol-layer-group">
-                                                                                        <h3 class="sidebar-header">
-                                                                                            Dibujos
-                                                                                        </h3>
-                                                                                        <br />
-                                                                        
-                                                                                        <p>En este apartado es posible realizar dibujos poligonales sobre el mapa</p>
-                                                                        
-                                                                                        <p>In this section, it is possible to create polygonal drawings on the map.</p>
-                                                                        
-                                                                                        <form>
-                                                                                            <label for="drawType">Tipo de dibujo &nbsp;</label>
-                                                                                            <select id="drawType" class="draw-input">
-                                                                                                <option value="Point">Punto </option>
-                                                                                                <option value="LineString">Linea </option>
-                                                                                                <option value="Polygon">Polígono </option>
-                                                                                                <option value="Circle">Círculo </option>
-                                                                                            </select>
-                                                                        
-                                                                                            <div>
-                                                                                                <label for="active">Mano alzada</label>
-                                                                                                <input type="checkbox" id="freeHand" class="draw-input" />
-                                                                                            </div>
-                                                                        
-                                                                                            <div>
-                                                                                                <label for="active">Habilitar dibujos</label>
-                                                                                                <input type="checkbox" id="activeDrawing" class="draw-input"/>
-                                                                                            </div>
-                                                                        
-                                                                                            <input type="button" id="eraseDrawings" class="draw-input tool-input-button" value="Borrar Dibujos" />
-                                                                                        </form>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                    </div>
-                                                                    <div id="contact-panel" class="contact-panel hidden custom-control-panel">
-                                                                        <div class="ol-layerswitcher ol-unselectable ol-control ol-collapsed ol-forceopen" style="pointer-events: auto; height: auto;">                                                                          
-                                                                            <div class="panel-container overflow-hidden">
-                                                                                <span id="close-contact-button" class="fa fa-close close"></span>
-                                                                                <ul class="panel" style="top: 0px;">
-                                                                                    <h2>Contacto</h2>
-                                                                                    <li class="ol-visible ol-layer-group measure-tool">
-                                                                                        <h3 class="sidebar-header">
-                                                                                            Correo
-                                                                                        </h3>
-                                                                                        <br />
-                                                                        
-                                                                                        <p><a href="mailto:rsg.group@uah.es?Subject=Cuestionario%20desde%20web%20map"
-                                                                                            role="tab"> <i
-                                                                                                class="fa fa-envelope"></i>rsg.group@uah.es</a></p>
- 
-                                                                                    </li>
-                                                                                    <li class="ol-visible ol-layer-group">
-                                                                                        <h3 class="sidebar-header">
-                                                                                            GitHub
-                                                                                        </h3>
-                                                                                        <br />
-                                                
-                                                                                        <p><a href="https://github.com/RsgGroupUAH" target="_blank"
-                                                                                            role="tab"> <i
-                                                                                                class="fa fa-github"></i>Repositorio Grupo Radiación y Sensores</a></p>
-
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                    </div>
-                                                                    <div id="info-panel" class="info-panel hidden custom-control-panel">
-                                                                        <div class="ol-layerswitcher ol-unselectable ol-control ol-collapsed ol-forceopen" style="pointer-events: auto; height: auto;">                                                                          
-                                                                            <div class="panel-container overflow-hidden">
-                                                                                <span id="close-info-button" class="fa fa-close close"></span>
-                                                                                <ul class="panel" style="top: 0px;">
-                                                                                    <h2>Presentación </h2> 
-                                                                                    <li class="ol-visible ol-layer-group measure-tool">
-                                                                                        <h3 class="sidebar-header">
-                                                                                            Grupo Radiación y Sensores
-                                                                                        </h3>
-                                                                                        <br />
-                                                                        
-                                                                                        <p>Bienvenid@s al visor web oficial del
-                                                                                            grupo de
-                                                                                            investigación en radiación y sensores de
-                                                                                            la
-                                                                                            Universidad de Alcalá. En el podrás
-                                                                                            visualizar toda la
-                                                                                            información geoespacial empleada en las
-                                                                                            investigaciones sobre contaminación
-                                                                                            electromagnética,
-                                                                                            realizadas desde el año 2017, hasta la
-                                                                                            actualidad en el municipio madrileño de
-                                                                                            Meco.</p>
-                                                                                            <p>
-                                                                                            Os dejamos el link a las publicaciones
-                                                                                            vinculadas a
-                                                                                            estos datos:
-                                                                                            -
-                                                                                            Esperamos que toda esta información os
-                                                                                            sea de utilidad.
-                                                                                            Cualquier duda no dudeís en contactar
-                                                                                            con nosotros a
-                                                                                            través del correo electrónico habilitado
-                                                                                            más
-                                                                                            abajo.
-                                                                                            </p> 
-                                                                                    </li>
-                                                                                    <li class="ol-visible ol-layer-group measure-tool">
-                                                                                        <h3 class="sidebar-header">
-                                                                                            Radiation and Sensors Group
-                                                                                        </h3>
-                                                                                        <br />
-                                                                        
-                                                                                        <p>
-                                                                                            Hello! 👋
-                                                                                            <br>
-                                                                                            Welcome to the official web viewer of
-                                                                                            the radiation and
-                                                                                            sensor research group of the University
-                                                                                            of
-                                                                                            Alcalá. In it you will be able to view
-                                                                                            all the
-                                                                                            geospatial information used in the
-                                                                                            investigations on
-                                                                                            electromagnetic pollution carried out
-                                                                                            from the year 2017
-                                                                                            to the present in the Madrid
-                                                                                            municipality
-                                                                                            of Meco.</p>
-                                                                                            <p>
-                                                                                            We leave you the link to the
-                                                                                            publications linked to this
-                                                                                            data:
-                                                                                            -
-                                                                                            We hope that all this information is
-                                                                                            useful to you.
-                                                                                            Any questions do not hesitate to contact
-                                                                                            us through the
-                                                                                            email enabled below.
-                                                                                            </p>       
-                                                                                            <br><br><br>
-                                                                                            
- 
-                                                                                    </li>
-                                                                                    <p><img
-                                                                                        src="static/images/cutrephoto.png"></img></p>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                    </div>
-                                                                     <!--FIN PANELES DE CONTROLES-->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+           
+            <div id="imprimible">
+                <div id="map" class="map">
+                    <!--COMIENZO MENU HERRAMIENTAS SUPERIOR-->
+                    <div class="ol-control position-button custom-ol-control" title="Ver posicion del ratón en coordenadas">
+                        <button type="button" id="position-button" class="control-menu-button  fa fa-map-marker fa-4x button"></button>
+                        <div class="tooltip">
+                            <span class="tooltiptext">Ver posicion del ratón en coordenadas</span>
                         </div>
                     </div>
+                    <div class="ol-control print-button custom-ol-control" title="Imprimir en PDF">
+                        <button type="button" id="print-button" class="control-menu-button  fa fa-file-pdf-o  fa-4x button"></button>
+                        <div class="tooltip">
+                            <span class="tooltiptext">Imprimir en PDF</span>
+                            
+                        </div>
+                    </div>
+                    <div class="ol-control value-button custom-ol-control" title="Visualizar valor capa raster">
+                        <button type="button" id="value-button" class="control-menu-button  fa fa-rebel fa-4x button"></button>
+                        <div class="tooltip">
+                            <span class="tooltiptext">Visualizar valor capa raster</span>
+                        </div>
+                    </div>
+                    <div class="ol-control tools-button custom-ol-control" title="Herramientas">
+                        <button type="button" id="tools-button" class="control-menu-button  fa fa-gears fa-4x button"></button>
+                        <div class="tooltip">
+                            <span class="tooltiptext">Herramientas</span>
+                        </div>
+                    </div>
+                    <div class="ol-control contact-button custom-ol-control" title="Contacto">
+                        <button type="button" id="contact-button" class="control-menu-button  fa fa-comments fa-4x button"></button>
+                        <div class="tooltip">
+                            <span class="tooltiptext">Contacto</span>
+                        </div>
+                    </div>
+                    <div class="ol-control info-button custom-ol-control" title="Información">
+                        <button type="button" id="info-button" class="control-menu-button  fa fa-info fa-4x button"></button>
+                        <div class="tooltip">
+                            <span class="tooltiptext">Información</span>
+                        </div>
+                    </div>
+                <!--FIN MENU HERRAMIENTAS SUPERIOR-->
                 </div>
+                
+                <!--COMIENZO PANELES DE CONTROLES-->
+                <div id="layer-control-parent" class="layer-control-parent"></div>
+                <div id="position-container"
+                    class="position-container hidden custom-control-panel">
+                    
+                    <div
+                        style="float:left;padding: 5px;font-weight: bold;">
+                        Posición ratón</div>
+                    <div id="mouse-position"
+                        style="float:right;padding: 5px;"></div>
+                    <div>
+                        <form>
+                            <label for="projection"
+                                style="float:left;padding: 5px;">Proyección</label>
+                            <select id="projection"
+                                style="float:right;padding: 5px;">
+                                <option value="EPSG:25830">EPSG:25830
+                                </option>
+                                <option value="EPSG:4326">EPSG:4326
+                                </option>
+                        
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <div id="value_layer" class="value_layer hidden custom-control-panel">
+                    <span id="close-value-button" class="fa fa-close close"></span>
+                    <div id="value_layer_title" style="font-weight: bold; font-size: larger;">
+                        Información de capa: 
+                        <span id="value_layer_name"></span>
+                        &nbsp;
+                    </div>
+                    <label for="legend" class="legend-label">Leyenda</label>
+                    <div id="legend"> &nbsp;</div>
+                    <label for="value">Valor</label>
+                    <div id="value"> &nbsp;</div>
+                </div>
+                <div id="export_pdf" class="export_pdf hidden custom-control-panel">
+                    <form class="form">
+                        <label for="format">Tamaño de página </label>
+                        <select id="format">
+                        <option value="a4" selected>A4</option>
+                        <option value="a5">A5 (fast)</option>
+                        </select>
+                        <label for="resolution">Resolución </label>
+                        <select id="resolution">
+                        <option value="72">72 dpi (fast)</option>
+                        <option value="150">150 dpi</option>
+                        <option value="300">300 dpi (slow)</option>
+                        </select>
+                    </form>
+                    <button id="export-pdf-button" >Exportar a  PDF</button>
+                </div>
+                <div id="tools-panel" class="tools-panel hidden custom-control-panel ">
+                    <div class="rsg-panel ol-layerswitcher ol-unselectable ol-control ol-collapsed ol-forceopen tool-panel-container" >                                                                          
+                        <div class="panel-container overflow-hidden">
+                            <span id="close-tools-button" class="fa fa-close close"></span>
+                            <ul class="panel" style="top: 0px;">
+                                <h2>Herramientas Geoportal</h2>
+                                <li class="ol-visible ol-layer-group measure-tool">
+                                    <h3 class="sidebar-header">
+                                        Medidas
+                                    </h3>
+                                    <br />
+                    
+                                    <p>En este apartado es posible realizar medidas tanto lineales como poligonales sobre el mapa, la medida entre puntos se hace utilizando el método geodésico</p>
+                    
+                                    <p>This section allows you to take both linear and polygonal measurements on the map. The measurement between points is done using the geodesic method.</p>
+                                    <div id="measure" class="ol-measure">
+                                        <div class="ol-measure-label">
+                                            Medidas:
+                                        </div>
+                                        <ul class="ol-measure-list"></ul>
+                                        <div id="info">&nbsp;</div>
+                                    </div>
+                    
+                                    <form>
+                                        <div>
+                                            <label for="type">Tipo de medida</label>
+                                            <select id="type" class="measure-input">
+                                                <option value="LineString"> Longitud (línea recta)</option>
+                                                <option value="Polygon">Área (Polígono) </option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label for="segments">Mostrar longitud de segmentos</label>
+                                            <input type="checkbox" id="segments" class="measure-input" checked />
+                                        </div>
+                                        <div>
+                                            <label for="clear">Limpiar medidas anteriorres</label>
+                                            <input type="checkbox" id="clear" class="measure-input" checked />
+                                        </div>
+                                        <div>
+                                            <label for="active">Habilitar medidas</label>
+                                            <input type="checkbox" id="active" class="measure-input"/>
+                                        </div>
+                    
+                                        <input type="button" id="erase" class="measure-input tool-input-button"value="Borrar medidas" />
+                                    </form>
+                                </li>
+                                <li class="ol-visible ol-layer-group">
+                                    <h3 class="sidebar-header">
+                                        Dibujos
+                                    </h3>
+                                    <br />
+                    
+                                    <p>En este apartado es posible realizar dibujos poligonales sobre el mapa</p>
+                    
+                                    <p>In this section, it is possible to create polygonal drawings on the map.</p>
+                    
+                                    <form>
+                                        <label for="drawType">Tipo de dibujo &nbsp;</label>
+                                        <select id="drawType" class="draw-input">
+                                            <option value="Point">Punto </option>
+                                            <option value="LineString">Linea </option>
+                                            <option value="Polygon">Polígono </option>
+                                            <option value="Circle">Círculo </option>
+                                        </select>
+                    
+                                        <div>
+                                            <label for="active">Mano alzada</label>
+                                            <input type="checkbox" id="freeHand" class="draw-input" />
+                                        </div>
+                    
+                                        <div>
+                                            <label for="active">Habilitar dibujos</label>
+                                            <input type="checkbox" id="activeDrawing" class="draw-input"/>
+                                        </div>
+                    
+                                        <input type="button" id="eraseDrawings" class="draw-input tool-input-button" value="Borrar Dibujos" />
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div id="contact-panel" class="contact-panel hidden custom-control-panel">
+                    <div class="rsg-panel  ol-layerswitcher ol-unselectable ol-control ol-collapsed ol-forceopen" style="pointer-events: auto; height: auto;">                                                                          
+                        <div class="panel-container overflow-hidden">
+                            <span id="close-contact-button" class="fa fa-close close"></span>
+                            <ul class="panel" style="top: 0px;">
+                                <h2>Contacto</h2>
+                                <li class="ol-visible ol-layer-group measure-tool">
+                                    <h3 class="sidebar-header">
+                                        Correo
+                                    </h3>
+                                    <br />
+                    
+                                    <p><a href="mailto:rsg.group@uah.es?Subject=Cuestionario%20desde%20web%20map"
+                                        role="tab"> <i
+                                            class="fa fa-envelope"></i>rsg.group@uah.es</a></p>
+
+                                </li>
+                                <li class="ol-visible ol-layer-group">
+                                    <h3 class="sidebar-header">
+                                        GitHub
+                                    </h3>
+                                    <br />
+
+                                    <p><a href="https://github.com/RsgGroupUAH" target="_blank"
+                                        role="tab"> <i
+                                            class="fa fa-github"></i>Repositorio Grupo Radiación y Sensores</a></p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div id="info-panel" class="info-panel hidden custom-control-panel">
+                    <div class="rsg-panel  ol-layerswitcher ol-unselectable ol-control ol-collapsed ol-forceopen" style="pointer-events: auto; height: auto;">                                                                          
+                        <div class="panel-container overflow-hidden">
+                            <span id="close-info-button" class="fa fa-close close"></span>
+                            <ul class="panel" style="top: 0px;">
+                                <h2>Presentación </h2> 
+                                <li class="ol-visible ol-layer-group measure-tool">
+                                    <h3 class="sidebar-header">
+                                        Grupo Radiación y Sensores
+                                    </h3>
+                                    <br />
+                    
+                                    <p>Bienvenid@s al visor web oficial del
+                                        grupo de
+                                        investigación en radiación y sensores de
+                                        la
+                                        Universidad de Alcalá. En el podrás
+                                        visualizar toda la
+                                        información geoespacial empleada en las
+                                        investigaciones sobre contaminación
+                                        electromagnética,
+                                        realizadas desde el año 2017, hasta la
+                                        actualidad en el municipio madrileño de
+                                        Meco.</p>
+                                        <p>
+                                        Os dejamos el link a las publicaciones
+                                        vinculadas a
+                                        estos datos:
+                                        -
+                                        Esperamos que toda esta información os
+                                        sea de utilidad.
+                                        Cualquier duda no dudeís en contactar
+                                        con nosotros a
+                                        través del correo electrónico habilitado
+                                        más
+                                        abajo.
+                                        </p> 
+                                </li>
+                                <li class="ol-visible ol-layer-group measure-tool">
+                                    <h3 class="sidebar-header">
+                                        Radiation and Sensors Group
+                                    </h3>
+                                    <br />
+                    
+                                    <p>
+                                        Hello! 👋
+                                        <br>
+                                        Welcome to the official web viewer of
+                                        the radiation and
+                                        sensor research group of the University
+                                        of
+                                        Alcalá. In it you will be able to view
+                                        all the
+                                        geospatial information used in the
+                                        investigations on
+                                        electromagnetic pollution carried out
+                                        from the year 2017
+                                        to the present in the Madrid
+                                        municipality
+                                        of Meco.</p>
+                                        <p>
+                                        We leave you the link to the
+                                        publications linked to this
+                                        data:
+                                        -
+                                        We hope that all this information is
+                                        useful to you.
+                                        Any questions do not hesitate to contact
+                                        us through the
+                                        email enabled below.
+                                        </p>       
+                                        <br><br><br>
+                                        
+
+                                </li>
+                                <p><img
+                                    src="static/images/cutrephoto.png"></img></p>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                    <!--FIN PANELES DE CONTROLES-->
             </div>
-        </div>
+         </div>
+                                                       
     </div>
 
 </body>

@@ -1,5 +1,5 @@
 import { map,createLayerLeyendPanel, destroyLayerLegendPanel } from "./map-layers.js";
-
+import {eraseFeatures} from "./map-drawings";
 //SE declara linea de escala
 const scale = new ol.control.ScaleLine({
 });
@@ -93,6 +93,7 @@ toolsButton.addEventListener('click', function (event) {
     container.className = container.className.replace("hidden","");
   }else{
     container.className = container.className + ' hidden';
+    eraseFeatures;
   }
  
 });
@@ -136,6 +137,14 @@ closeToolsButton.addEventListener('click', function (event) {
   closeElement(this);
  
 });
+const closeValueButton = document.getElementById('close-value-button');
+closeValueButton.addEventListener('click', function (event) {
+  var container = document.getElementById('value_layer');
+  container.className = container.className + ' hidden';
+  destroyLayerLegendPanel();
+ 
+});
+
 
 function closeElement(element){
   var container = element.parentNode.parentNode.parentNode;

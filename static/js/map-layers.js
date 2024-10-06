@@ -87,9 +87,12 @@ export function createLayerLeyendPanel() {
 
 //MEtodo que vacia la capa de valores de capa
 export function destroyLayerLegendPanel(){
-  //vacio el div de valores de capa
+  //vacio el div de de leyenda
   const container = document.getElementById('value_layer').querySelector('#legend');
   container.innerHTML = "";
+  //elimino el div de valores de capa
+  const containerValue = document.getElementById('value_layer').querySelector('#value');  
+  containerValue.innerHTML = "";
   //eliminar el combo layer-switcher-combo-for-data
   const panel = document.getElementById('layer-value-panel');
   panel.remove();
@@ -182,6 +185,22 @@ export function showLayerLegend() {
         // Crear la tabla
         var table = document.createElement('table');
         table.border = 1;
+        //añado clase value_layer_table para darle estilo
+        table.className = 'value_layer_table';
+
+        // Crear el encabezado de la tabla
+        var thead = document.createElement('thead');
+        //le añado class value_layer_table para darle estilo
+        thead.className = 'value_layer_table_head';
+        var tr = document.createElement('tr');
+        var th = document.createElement('th');
+        th.textContent = 'Atributo';
+        tr.appendChild(th);
+        th = document.createElement('th');
+        th.textContent = 'Valor';
+        tr.appendChild(th);
+        thead.appendChild(tr);
+        table.appendChild(thead);
 
         // Crear el cuerpo de la tabla
         var tbody = document.createElement('tbody');
