@@ -1,5 +1,5 @@
 import { map,createLayerLeyendPanel, destroyLayerLegendPanel } from "./map-layers.js";
-import {eraseFeatures} from "./map-drawings";
+import {eraseFeatures} from "./map-drawing.js";
 //SE declara linea de escala
 const scale = new ol.control.ScaleLine({
 });

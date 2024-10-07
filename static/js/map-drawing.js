@@ -82,7 +82,7 @@ if(checkbox.checked){
 
 document.getElementById ("eraseDrawings").addEventListener ("click", eraseFeatures, false);
 
-function eraseFeatures(){
+export function eraseFeatures(){
   var features = drawingVectorLayer.getSource().getFeatures();
   features.forEach((feature) => {
     drawingVectorLayer.getSource().removeFeature(feature);
