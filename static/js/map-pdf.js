@@ -1,6 +1,6 @@
 import { map } from "./map-layers.js";
 
-const exportButton = document.getElementById('export-pdf');
+const exportButton = document.getElementById('export-pdf-button');
 
 const dims = {
     a4: [297, 210],
@@ -78,7 +78,7 @@ exportButton.addEventListener(
 );
 function addWaterMark(doc) {
   var totalPages = doc.internal.getNumberOfPages();
-
+  var i = 0;
   for (i = 1; i <= totalPages; i++) {
     doc.setPage(i);
     doc.setTextColor(255);
