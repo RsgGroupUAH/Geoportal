@@ -100,6 +100,12 @@
                             <span class="tooltiptext">Información</span>
                         </div>
                     </div>
+                    <div class="ol-control wcs-operations-button custom-ol-control" title="Operacions con capas raster">
+                        <button type="button" id="wcs-operations-button" class="control-menu-button  fa fa-plus fa-4x button"></button>
+                        <div class="tooltip">
+                            <span class="tooltiptext">Operaciones con capas raster</span>
+                        </div>
+                    </div>
                 <!--FIN MENU HERRAMIENTAS SUPERIOR-->
                 </div>
                 
@@ -355,12 +361,86 @@
                     </div>
                     
                 </div>
+                <div id="wcs-operations-panel" class="wcs-operations-panel hidden custom-control-panel ">
+                    <div class="rsg-panel ol-layerswitcher ol-unselectable ol-control ol-collapsed ol-forceopen " >                                                                          
+                        <div class="panel-container overflow-hidden wcs-operations-panel-container">
+                            <span id="close-operations-button" class="fa fa-close close"></span>
+                            <ul class="panel" style="top: 0px;">
+                                <h2>Control de capas raster</h2>
+                                <li class="ol-visible ol-layer-group operations-tool raster-layer-tool">
+                                    <h3 class="sidebar-header">
+                                        Carga de capas
+                                    </h3>
+                                    <p>En este apartado es posible cargar capas raster desde servicios WCS
+                                    </p>
+                                    <p>In this section, it is possible to load raster layers from WCS services.</p>
+                                    <div id="wcs-capabilities-panel" class="wcs-capabilities-panel"></div>
+                                </li>
+                                
+                                <li class="ol-visible ol-layer-group operations-tool">
+                                    <h3 class="sidebar-header">
+                                        Operaciones aritméticas
+                                    </h3>
+                                    <br />
+                    
+                                    <p>En este apartado es posible realizar operaciones entre capas raster. Se deben seleccionar dos capas y el tipo de operación y se generará una tercera capa 
+                                        con el resultado de la operación
+                                    </p>
+                    
+                                    <p>In this section, it is possible to perform operations between raster layers. Two layers and the type of operation must be selected, and a third layer will be generated with the result of the operation.</p>
+                                    <div id="operation" class="ol-measure">
+                                        <div class="ol-operation-label">
+                                            Datos de operación:
+                                        </div>
+                                        <ul class="ol-operation-list"></ul>
+                                        <div id="info">&nbsp;</div>
+                                    </div>
+                    
+                                    <form>
+                                        <div>
+                                            <label for="operation-type">Tipo de oepracion</label>
+                                            <select id="operation-type" class="operation-input">
+                                                <option value="add">Suma</option>
+                                                <option value="substract">Resta</option>
+                                                <option value="substractAbs">Resta absoluta</option>
+                                                <option value="multiply">Multiplicación</option>
+                                                <option value="divide">División</option>
+                                                <option value="max">Máximo</option>
+                                                <option value="min">Mínimo</option>
+                                                <option value="mean">Media</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label for="operation-layer-one">Capa 1</label>
+                                            <select id="operation-layer-one" class="operation-input operation-layer-one-input">
+
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label for="operation-layer-two">Capa 2</label>
+                                            <select id="operation-layer-two" class="operation-input operation-layer-two-input">
+
+                                            </select>
+                                        </div>
+                                        <input type="button" id="perform-operation" class="operation-input operation-input-button"value="Realizar operación" />
+                                    </form>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                
                     <!--FIN PANELES DE CONTROLES-->
             </div>
          </div>
                                                        
     </div>
-
+    <!--LOADER-->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
 </body>
 <!--Jquery-->
 <script src="static/js/jquery-3.6.4.js "></script>
@@ -393,5 +473,5 @@
 <script type="module" src="static/js/map-drawing.js"></script>
 <script type="module" src="static/js/map-wms-control.js"></script>
 <script type="module" src="static/js/map-pdf.js"></script>
-
+<script type="module" src="static/js/map-wcs-control.js"></script>
 </html>

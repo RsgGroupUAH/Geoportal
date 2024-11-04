@@ -1,15 +1,5 @@
 import { map } from "./map-layers.js";
-// http services load on http
-/* if (location.protocol === 'https:' && !/^localhost/.test(location.host)) {
-  location.href = window.location.href.replace(/^https:/,'http:');
-} */
 
-var parent = document.getElementById('layer-control-parent');
-
-map.addControl(new ol.control.LayerSwitcher({ 
-  trash: true, 
-  extent: true,
-}));
 var plink = new ol.control.Permalink({ visible: false, localStorage: 'position' });
 map.addControl(plink);
 map.addControl(new ol.control.SearchNominatim({ zoomOnSelect: 13 }));
@@ -17,7 +7,7 @@ if (plink.hasUrlParam('edugeo')) $('.options button').show();
 
 var cap = new ol.control.WMSCapabilities({ 
   target: $('.options').get(0),
-  cors: true,
+  cors: false,
   optional: 'token',
   services: {
     'UAH-geoserver': 'http://geoserver.uah.es:8080/geoserver/ows?',

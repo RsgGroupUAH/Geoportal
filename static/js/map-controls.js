@@ -1,5 +1,16 @@
 import { map,createLayerLeyendPanel, destroyLayerLegendPanel } from "./map-layers.js";
 import {eraseFeatures} from "./map-drawing.js";
+import {listRasterLayers} from "./map-operations.js";
+
+//Layer Switcher
+map.addControl(new ol.control.LayerSwitcher({ 
+  trash: true, 
+  extent: true,
+  activationMode: 'click',
+  startActive: true,
+  tipLabel: 'Leyenda', // Optional label for button
+}));
+
 //SE declara linea de escala
 const scale = new ol.control.ScaleLine({
 });
@@ -120,6 +131,31 @@ infoButton.addEventListener('click', function (event) {
  
 });
 
+const wcsButton = document.getElementById('wcs-operations-button');
+wcsButton.addEventListener('click', function (event) {
+  var container = document.getElementById('wcs-operations-panel');
+  if(container.className.includes("hidden")){
+    container.className = container.className.replace("hidden","");
+    //añado todas las capas raster a los inputs
+    var rasterLayers = listRasterLayers();
+    var select1 = document.getElementById('operation-layer-one');
+    var select2 = document.getElementById('operation-layer-two');
+    rasterLayers.forEach(layer => {
+      var option1 = document.createElement("option");
+      option1.text = layer.get('title');
+      option1.value = layer.get('title');
+      select1.add(option1);
+      var option2 = document.createElement("option");
+      option2.text = layer.get('title');
+      option2.value = layer.get('title');
+      select2.add(option2);
+    });
+  }else{
+    container.className = container.className + ' hidden';
+  }
+ 
+});
+
 const closeInfoButton = document.getElementById('close-info-button');
 closeInfoButton.addEventListener('click', function (event) {
   closeElement(this);
@@ -145,6 +181,16 @@ closeValueButton.addEventListener('click', function (event) {
  
 });
 
+const closeOperationsButton = document.getElementById('close-operations-button');
+closeOperationsButton.addEventListener('click', function (event) {
+  //limpio los inputs
+  var select1 = document.getElementById('operation-layer-one');
+  var select2 = document.getElementById('operation-layer-two');
+  select1.innerHTML = "";
+  select2.innerHTML = "";
+  
+  closeElement(this);
+});
 
 function closeElement(element){
   var container = element.parentNode.parentNode.parentNode;

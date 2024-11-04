@@ -6,42 +6,47 @@
  * Website: http://htmlstream.com
 */
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 #header-container {
-    flex: 0 0 auto; /* Ocupa su altura automática */
+	flex: 0 0 auto;
+	/* Ocupa su altura automática */
 }
 
 #content-interior {
-    flex: 1 1 auto; /* Ocupa el resto del espacio disponible */
-    display: flex;
-    flex-direction: column;
+	flex: 1 1 auto;
+	/* Ocupa el resto del espacio disponible */
+	display: flex;
+	flex-direction: column;
 }
 
 #map {
-    flex: 1 1 auto; /* Ocupa el resto del espacio disponible dentro de content-interior */
-    min-height: 0; /* Asegura que el mapa no cause overflow */
+	flex: 1 1 auto;
+	/* Ocupa el resto del espacio disponible dentro de content-interior */
+	min-height: 0;
+	/* Asegura que el mapa no cause overflow */
 }
 
 /* Asegúrate de que otros elementos dentro de content-interior no causen overflow */
 #imprimible {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
 }
 
-.header-rsg{
+.header-rsg {
 	z-index: 99;
 	position: relative;
 	border-bottom: solid 2px #eee;
@@ -51,7 +56,8 @@ html, body {
 	background: none;
 	height: auto;
 }
-.tituloInvestigacion{
+
+.tituloInvestigacion {
 	color: #4765a0;
 	text-align: left;
 	margin-top: 1em;
@@ -59,7 +65,8 @@ html, body {
 	display: table-cell;
 	padding: 1em;
 }
-.logos{
+
+.logos {
 	width: 26%;
 	display: table-cell;
 	padding: 1em;
@@ -79,7 +86,7 @@ html, body {
 	position: absolute;
 	border-radius: 4px;
 	bottom: 0.7em;
-    left: 0.7em;
+	left: 0.7em;
 	padding: 2px;
 }
 
@@ -88,23 +95,25 @@ html, body {
 	position: absolute;
 	border-radius: 4px;
 	bottom: 0.7em;
-    left: 23em;
+	left: 23em;
 	padding: 2px;
 	display: grid;
 }
-.export_pdf form{
+
+.export_pdf form {
 	display: grid;
 	padding: 0.5em;
 }
 
-#export-pdf-button{
+#export-pdf-button {
 
 	background: #4765a0;
-    color: white;
-    font-weight: bold;
-    border-radius: 0.2em;
+	color: white;
+	font-weight: bold;
+	border-radius: 0.2em;
 }
-#export-pdf-button:hover{
+
+#export-pdf-button:hover {
 	background: #3a4f8d;
 	color: grey;
 }
@@ -139,14 +148,15 @@ html, body {
 
 .ol-control.ol-wmscapabilities {
 	top: 0.5em !important;
-	right: 31em !important;
+	right: 36em !important;
 
 }
 
 .ol-control.ol-layerswitcher {
-	right: 36em ;
+	right: 41em;
 }
-.col-layer-switcher-header button{
+
+.col-layer-switcher-header button {
 	float: right;
 }
 
@@ -156,7 +166,7 @@ html, body {
 
 .tools-panel.custom-control-panel .panel-container,
 .contact-panel.custom-control-panel .panel-container,
-.info-panel.custom-control-panel .panel-container {
+.info-panel.custom-control-panel .panel-container, .wcs-operations-panel-container {
 	padding: 1em 1em !important;
 }
 
@@ -168,47 +178,52 @@ html, body {
 	overflow-y: hidden;
 }
 
-.custom-ol-control{
+.custom-ol-control {
 	position: absolute;
 	top: 8.35em;
-    z-index: 99;
-    height: 55px
+	z-index: 99;
+	height: 55px
 }
+
 .position-button {
-	right: 26em;
+	right: 31em;
 }
 
 .print-button {
-	right: 21em;
+	right: 26em;
 }
 
 .value-button {
-	right: 16em;
+	right: 21em;
 }
 
 .tools-button {
-	right: 11em;
+	right: 16em;
 }
 
 .contact-button {
-	right: 6em;
+	right: 11em;
 }
 
 .info-button {
-	right: 1em;
+	right: 6em;
 }
 
+.wcs-operations-button {
+	right: 1em;
+}
 
 .hidden {
 	display: none;
 }
 
-.ol-scale-line.ol-unselectable{
+.ol-scale-line.ol-unselectable {
 	float: right;
-    right: 14em;
-    left: auto;
-    bottom: 0.1em;
+	right: 14em;
+	left: auto;
+	bottom: 0.1em;
 }
+
 .custom-control-panel,
 .ol-scale-line.ol-unselectable {
 	background-color: white !important;
@@ -220,34 +235,77 @@ html, body {
 }
 
 .tools-panel .ol-control {
-	top: 12.5em ;
-	right: 11em ;
+	top: 12.5em;
+	right: 16em;
 	overflow: scroll !important;
 }
-.tool-panel-container{
+
+.tool-panel-container {
 	max-height: calc(100% - 6em) !important;
 }
 
+
 .contact-panel .ol-control {
-	top: 12.5em ;
-	right: 6em ;
+	top: 12.5em;
+	right: 11em;
+}
+
+.wcs-operations-panel .ol-control {
+	top: 12.5em;
+	right: 1em;
+}
+
+.wcs-capabilities-panel {
+	width: 100%;
+}
+
+.level-0.raster-layer-item.selected {
+	background: #4765a0;
+	color: white;
+}
+
+.wcs-select-list {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.wcs-select-list {
+	position: relative;
+	border: 1px solid #369;
+	overflow-x: hidden;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	max-height: 14.5em;
+}
+
+.raster-layer-tool {
+	margin-bottom: 10px;
 }
 
 .info-panel .ol-control {
-	top: 12.5em ;
-	right: 1em ;
+	top: 12.5em;
+	right: 6em;
 	overflow: scroll !important;
 	max-height: calc(100% - 17em) !important;
 }
 
 
 .measure-input,
-.draw-input {
+.draw-input,
+.operation-input {
 	float: right;
 	display: inline !important;
 }
 
 .tool-input-button {
+	background: #0074d9;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+	border-radius: 3px;
+}
+
+.operation-input-button {
 	background: #0074d9;
 	color: white;
 	font-family: 'Open Sans', sans-serif;
@@ -279,40 +337,46 @@ html, body {
 	height: auto;
 	max-height: 500px;
 	bottom: 7em;
-    left: 0.7em;
+	left: 0.7em;
 }
-#value_layer_title{
+
+#value_layer_title {
 	background: #4765a0;
 	color: white;
 	padding: 5px;
 	position: absolute;
 	width: 94%;
 }
+
 /* Opción 2: Aplicar padding a td y th */
-.value_layer_table td, .value_layer_table th {
-    padding: 5px;
+.value_layer_table td,
+.value_layer_table th {
+	padding: 5px;
 }
 
 .value_layer_table_head {
 	background: #4765a0;
-    color: white;
+	color: white;
 	border-collapse: collapse;
 	width: 100%;
 }
 
 /* Estilos alternos para filas de .value_layer_table */
 .value_layer_table tbody tr:nth-child(odd) {
-    background-color: #f2f2f2; /* Gris claro para filas impares */
+	background-color: #f2f2f2;
+	/* Gris claro para filas impares */
 }
 
 .value_layer_table tbody tr:nth-child(even) {
-    background-color: #ffffff; /* Blanco para filas pares */
+	background-color: #ffffff;
+	/* Blanco para filas pares */
 }
 
-.legend-label{
+.legend-label {
 	margin-top: 3em;
-    margin-left: 0.5em;
+	margin-left: 0.5em;
 }
+
 .medida-tooltip {
 	border-collapse: collapse;
 	width: 90%;
@@ -355,13 +419,48 @@ html, body {
 .custom-mouse-position {
 	background-color: rgba(200, 200, 200, 0.1);
 }
-.ol-control.ol-legend{
+
+.ol-control.ol-legend {
 	top: 2.5em !important;
 	left: 3em !important;
 }
-.ol-control.ol-legend.ol-collapsed{
+
+.ol-control.ol-legend.ol-collapsed {
 	height: 1.5em !important;
 	width: 1.5em !important;
+}
+
+/* Estilos para el velo y el loader */
+#loader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.8);
+	z-index: 1000;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.spinner {
+	border: 16px solid #f3f3f3;
+	border-top: 16px solid #3498db;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 @media screen and (max-width: 1200px) and (min-width: 999px) {
@@ -369,38 +468,43 @@ html, body {
 		font-size: 25px !important;
 
 	}
-	.custom-ol-control{
+
+	.custom-ol-control {
 		top: 8.1em;
 	}
 }
+
 @media screen and (max-width: 999px) and (min-width: 621px) {
 
-	.custom-ol-control{
+	.custom-ol-control {
 		top: 11.7em;
 	}
-	.logos{
+
+	.logos {
 		display: inline;
 	}
-	
+
 	.tituloInvestigacion {
 		font-size: 19px;
 		clear: both;
-        text-align: left
+		text-align: left
 	}
-	.rsg-panel{
+
+	.rsg-panel {
 		top: 16em !important;
 	}
 
 }
 
 @media screen and (max-width: 620px) and (min-width: 451px) {
-	.logos{
+	.logos {
 		display: inline;
 	}
 
 	.tituloInvestigacion {
 		font-size: 13px;
 	}
+
 	.control-menu-button {
 		width: 33px !important;
 		height: 33px !important;
@@ -410,7 +514,8 @@ html, body {
 		width: 33px !important;
 		height: 33px !important;
 	}
-	.custom-ol-control{
+
+	.custom-ol-control {
 		top: 10.77em;
 	}
 
@@ -440,12 +545,14 @@ html, body {
 	}
 
 	.ol-control.ol-wmscapabilities {
-		right: 26em !important;
+		right: 31em !important;
 	}
+
 	.ol-control.ol-layerswitcher {
 		right: 29.5em;
 	}
-	.rsg-panel{
+
+	.rsg-panel {
 		right: 5.1em !important;
 		top: 13.4em !important;
 	}

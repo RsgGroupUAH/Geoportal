@@ -1,7 +1,6 @@
 const distanceInput = 40;
 const mindistanceInput = 20;
 
-
 let projectionName = "EPSG:25830";
 proj4.defs(projectionName, "+proj=utm +zone=30 +ellps=ETRS89 +units=m +no_defs");
 ol.proj.proj4.register(proj4);
@@ -27,7 +26,7 @@ export const map = new ol.Map({
         new ol.layer.Tile({
           title: "Híbrido",
           source: new ol.source.XYZ({
-            url: 'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}',
+            url: 'https://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}',
             crossOrigin: 'Anonymous',
             
           }),
