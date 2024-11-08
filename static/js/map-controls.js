@@ -137,7 +137,8 @@ wcsButton.addEventListener('click', function (event) {
   if(container.className.includes("hidden")){
     container.className = container.className.replace("hidden","");
     //añado todas las capas raster a los inputs
-    var rasterLayers = listRasterLayers();
+    //Se queda comentado para futuras operaciones con WCS
+    /* var rasterLayers = listRasterLayers();
     var select1 = document.getElementById('operation-layer-one');
     var select2 = document.getElementById('operation-layer-two');
     rasterLayers.forEach(layer => {
@@ -149,7 +150,7 @@ wcsButton.addEventListener('click', function (event) {
       option2.text = layer.get('title');
       option2.value = layer.get('title');
       select2.add(option2);
-    });
+    }); */
   }else{
     container.className = container.className + ' hidden';
   }

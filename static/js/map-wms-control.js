@@ -10,7 +10,7 @@ var cap = new ol.control.WMSCapabilities({
   cors: false,
   optional: 'token',
   services: {
-    'UAH-geoserver': 'http://geoserver.uah.es:8080/geoserver/ows?',
+    'UAH-geoserver': 'http://localhost/geoserver/ows?',
     'IDEE COPERNICUS': 'https://servicios.idee.es/wms/copernicus-landservice-spain?',
     'CODIGOS POSTALES': 'https://www.cartociudad.es/wms-inspire/direcciones-ccpp',
     'IDEE HIDROGRAFIA': 'https://servicios.idee.es/wms-inspire/hidrografia',

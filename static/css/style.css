@@ -452,7 +452,20 @@ body {
 	height: 120px;
 	animation: spin 2s linear infinite;
 }
-
+.wcs-capabilities-panel-container .controls  {
+	display: grid;
+	width: 50%;
+}
+.wcs-capabilities-panel-container .controls  div{
+	margin-top:1em
+}
+.wcs-capabilities-panel-container .controls label {
+	padding: 0 0 0 0 !important;
+}
+.wcs-capabilities-panel-container .controls input {
+	float: right;
+	height: 2em;
+}
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
