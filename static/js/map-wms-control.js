@@ -1,10 +1,13 @@
 import { map } from "./map-layers.js";
-
+/**
+ * @fileoverview Este archivo contiene las funciones relativas al control de capas WMS.
+ */
 var plink = new ol.control.Permalink({ visible: false, localStorage: 'position' });
 map.addControl(plink);
 map.addControl(new ol.control.SearchNominatim({ zoomOnSelect: 13 }));
 if (plink.hasUrlParam('edugeo')) $('.options button').show();
 
+// añade WMS capabilities control
 var cap = new ol.control.WMSCapabilities({ 
   target: $('.options').get(0),
   cors: false,
@@ -22,7 +25,7 @@ var cap = new ol.control.WMSCapabilities({
     'EOX':'https://tiles.maps.eox.at/wms?',
     'GEBCO':'https://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv',
   },
-  // Show trace in the console
+  // muestra trace en consola
   trace: true
 });
 map.addControl(cap);

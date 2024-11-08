@@ -1,6 +1,10 @@
 const distanceInput = 40;
 const mindistanceInput = 20;
+/**
+ * @fileoverview Este archivo contiene la configuración de las capas del mapa.
+ */
 
+//Se declara proyección por defecto
 let projectionName = "EPSG:25830";
 proj4.defs(projectionName, "+proj=utm +zone=30 +ellps=ETRS89 +units=m +no_defs");
 ol.proj.proj4.register(proj4);
@@ -8,7 +12,7 @@ ol.proj.proj4.register(proj4);
 let projection = ol.proj.get(projectionName);
 projection.setExtent([-1099677.548488217,3011748.0230924687,1295248.9757446367,4998012.783793152]);
 
-//SE declara mapa con tres Tiles, y se le añaden las capas declaradas anterioremente
+//SE declara mapa con tres dos capas base
 export const map = new ol.Map({
   target: "map",
   layers: [
@@ -100,29 +104,29 @@ export function destroyLayerLegendPanel(){
 //MEtodo que cada vez que cambia el valor del combo layer-switcher-combo-for-data consulta su leyenda y la muestra
 export function showLayerLegend() {
   // Obtener el combo
-  var combo = document.getElementById('layer-switcher-combo-for-data');
+  let combo = document.getElementById('layer-switcher-combo-for-data');
 
   // Obtener el valor seleccionado
-  var selectedValue = combo.options[combo.selectedIndex].value;
+  let selectedValue = combo.options[combo.selectedIndex].value;
 
   // Obtener todas las capas del layer switcher
-  var layers = map.getLayers().getArray();
+  let layers = map.getLayers().getArray();
 
   // Obtener la capa seleccionada
-  var selectedLayer = layers.find(layer => layer.get('title') === selectedValue);
+  let selectedLayer = layers.find(layer => layer.get('title') === selectedValue);
 
   // Obtener la leyenda de la capa seleccionada
-  var legend = selectedLayer.get('legend');
+  let legend = selectedLayer.get('legend');
 
   // Mostrar la leyenda en el div de valores de capa en el div info hijo de layer-value si no es undefined
-  var container = document.getElementById('value_layer').querySelector('#legend');
+  let container = document.getElementById('value_layer').querySelector('#legend');
 
   //poner el el sppan value_layer_name el valor selecteValue
-  var containerName = document.getElementById('value_layer').querySelector('#value_layer_name');
+  let containerName = document.getElementById('value_layer').querySelector('#value_layer_name');
   containerName.innerHTML = selectedValue;
 
   //vaciar el div value para que no se acumulen valores
-  var containerValue = document.getElementById('value_layer').querySelector('#value');
+  let containerValue = document.getElementById('value_layer').querySelector('#value');
   containerValue.innerHTML = "";
   
   if(legend !== undefined){

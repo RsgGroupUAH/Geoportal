@@ -1,6 +1,9 @@
 import { map } from "./map-layers.js";
+/**
+ * @fileoverview Este archivo contiene las funciones que controlan el control de capas WCS.
+ */
 
-
+//Se declara clase WCSCapabilities
 class WCSCapabilities {
     constructor(options) {
         this.map = options.map;
@@ -9,17 +12,16 @@ class WCSCapabilities {
         this.init();
     }
 
+    //Función para inicializar el componente
     init() {
+        // Crear un select con las opciones de los servicios WCS
         const select = document.createElement('select');
         const defaultOption = document.createElement('option');
-
-
-      
-
         defaultOption.textContent = 'Select a WCS service or enter URL';
         defaultOption.value = '';
         select.appendChild(defaultOption);
 
+        // Añadir las opciones de los servicios WCS al select
         this.services.forEach(service => {
             const option = document.createElement('option');
             option.textContent = service.name;
@@ -27,6 +29,7 @@ class WCSCapabilities {
             select.appendChild(option);
         });
 
+        // Añadir evento change al select
         select.onchange = () => {
             const url = select.value;
             if (url) {
@@ -34,17 +37,17 @@ class WCSCapabilities {
             } else {
                 const listToClear = document.getElementsByClassName('wcs-capabilities-panel-container');
 
-                for (var i = 0; i < listToClear.length; i++) {
-                    listToClear[i].innerHTML = '';
+                for (let element of listToClear) {
+                    element.innerHTML = '';
                 }
             }
         };
 
+        // Añadir el select al contenedor
         this.container.appendChild(select);
-
-        
     }
 
+    //Función para obtener las capacidades de un servicio WCS
     getCapabilities(url) {
         const capabilitiesUrl = `${url}?service=WCS&version=2.0.1&request=GetCapabilities`;
         fetch(capabilitiesUrl)
@@ -58,11 +61,11 @@ class WCSCapabilities {
             .catch(console.error);
     }
 
+    //Función para parsear las capacidades de un servicio WCS
     parseWCSCapabilities(xmlDoc, url) {
         const layers = [];
         const coverageSummaries = xmlDoc.getElementsByTagName('wcs:CoverageSummary');
-        for (let i = 0; i < coverageSummaries.length; i++) {
-            const coverage = coverageSummaries[i];
+        for (const coverage of coverageSummaries) {
             const title = coverage.getElementsByTagName('ows:Title')[0].textContent;
             const identifier = coverage.getElementsByTagName('wcs:CoverageId')[0].textContent;
             const serviceUrl = url;
@@ -72,12 +75,16 @@ class WCSCapabilities {
     }
 
 
+    //Función para mostrar las capas de un servicio WCS
     showLayers(layers) {
-        var generalContainer = document.createElement('div');
+        // Limpiar el contenedor antes de mostrar las capas
+        let generalContainer = document.createElement('div');
         generalContainer.className = 'wcs-capabilities-panel-container';
         generalContainer.id = 'wcs-capabilities-panel-container';
         this.container.appendChild(generalContainer);
-        var listContainer = document.getElementById('raster-layer-list');
+
+        // Crear un div para mostrar la lista de capas
+        let listContainer = document.getElementById('raster-layer-list');
         if (listContainer == null) {
             listContainer = document.createElement('div');
             listContainer.className = 'raster-layer-list wcs-select-list';
@@ -87,6 +94,7 @@ class WCSCapabilities {
             listContainer.innerHTML = '';
         }
 
+        // Añadir las capas al div
         layers.layers.forEach(layer => {
             const layerDiv = document.createElement('div');
             layerDiv.className = 'level-0 raster-layer-item';
@@ -94,9 +102,9 @@ class WCSCapabilities {
 
             //cada vez que se hace click en un layerDiv se le añade el class selected y se le quita a todos los otros layerDiv
             layerDiv.onclick = function (e) {
-                var selected = document.getElementsByClassName('raster-layer-item selected');
-                for (var i = 0; i < selected.length; i++) {
-                    selected[i].classList.remove('selected');
+                let selected = document.getElementsByClassName('raster-layer-item selected');
+                for (let element of selected) {
+                    element.classList.remove('selected');
                 }
                 e.target.classList.add('selected');
             }
@@ -104,14 +112,13 @@ class WCSCapabilities {
         });
 
         //obtengo el nombre de la capa del div hijo del div con id raster-layer-list y class selected
-
         const loadButton = document.createElement('input');
         loadButton.type = 'button';
         loadButton.value = 'Load Layer';
         loadButton.id = 'load-raster-layer-button';
         loadButton.className = 'operation-input operation-input-button';
         loadButton.onclick = (event) => {
-            var selectedLayer = layers.layers.find(layer => layer.title === document.querySelector('.raster-layer-item.selected').textContent);
+            let selectedLayer = layers.layers.find(layer => layer.title === document.querySelector('.raster-layer-item.selected').textContent);
             event.stopPropagation();
             this.loadLayer(selectedLayer);
         };
@@ -150,43 +157,14 @@ class WCSCapabilities {
           });
     }
 
-
-    previewLayer(layer) {
-        const extent = this.map.getView().calculateExtent(this.map.getSize());
-        const wcsUrl = `${this.WCSCapabilities.ServiceURL}?service=WCS&version=2.0.1&request=GetCoverage&coverageId=${layer.Identifier}&format=image/png&subset=Lat(${extent[1]},${extent[3]})&subset=Long(${extent[0]},${extent[2]})`;
-        const img = new Image();
-        img.src = wcsUrl;
-        img.onload = () => {
-            const canvas = document.createElement('canvas');
-            canvas.width = img.width;
-            canvas.height = img.height;
-            const context = canvas.getContext('2d');
-            context.drawImage(img, 0, 0);
-            const imageData = context.getImageData(0, 0, img.width, img.height);
-
-            const rasterLayer = new ol.layer.Image({
-                source: new ol.source.ImageStatic({
-                    url: canvas.toDataURL(),
-                    imageExtent: extent
-                })
-            });
-
-            this.map.addLayer(rasterLayer);
-        };
-    }
-
-    showLegend(layer) {
-        const legendUrl = `${layer.serviceUrl}?service=WMS&version=1.3.0&request=GetLegendGraphic&layer=${layer.Identifier}&format=image/png`;
-        const img = new Image();
-        img.src = legendUrl;
-        this.container.appendChild(img);
-    }
-
+    //Función para cargar una capa raster
     loadLayer(layer) {
+        //Obtener la extensión y la proyección del mapa
         const extent = this.map.getView().calculateExtent(this.map.getSize());
         const projection = this.map.getView().getProjection().getCode();
         let subsetX, subsetY;
 
+        // Determinar los ejes de la extensión para EPSG:4326 tiene que ser Long y Lat
         if (projection === 'EPSG:4326') {
             subsetX = 'Long';
             subsetY = 'Lat';
@@ -195,6 +173,7 @@ class WCSCapabilities {
             subsetY = 'N';
         }
 
+        // Construir la URL de la solicitud GetCoverage
         const wcsUrl = `${layer.serviceUrl}?service=WCS&version=2.0.1&request=GetCoverage&coverageId=${layer.identifier}&format=image/tiff&subset=${subsetY}(${extent[1]},${extent[3]})&subset=${subsetX}(${extent[0]},${extent[2]})`;
 
         fetch(wcsUrl)
@@ -233,6 +212,7 @@ async function getRasterData(source) {
     const rasters =  await tiff.readRasters();
     return rasters;
 }
+// Función para esperar a que la fuente esté lista
 function waitForSourceReady(source) {
     return new Promise((resolve) => {
         function checkState() {
@@ -246,6 +226,7 @@ function waitForSourceReady(source) {
     });
 }
 
+// Función para inicializar el mapa con una capa raster
 async function initializeMap(blob,layer){
     // Crear una fuente GeoTIFF
     const source = new ol.source.GeoTIFF({
@@ -269,7 +250,6 @@ async function initializeMap(blob,layer){
             max = data[i];
         }
     }
-  
 
     // Crear una capa de raster usando la fuente GeoTIFF
     const rasterLayer = new ol.layer.WebGLTile({
@@ -293,6 +273,13 @@ async function initializeMap(blob,layer){
     // Añadir la capa al mapa
     map.addLayer(rasterLayer);
 }
+
+// Función para actualizar el estilo de la capa raster
+// en función de la selección del usuario
+// y los valores mínimo y máximo de los datos
+// de la capa raster
+// Devuelve un array con los valores de la paleta de colores
+// para la capa raster
 function updateLayerStyle(styleSelect,min,max) {
     let colorMap;
     if (styleSelect.value === 'rsg') {
@@ -321,11 +308,13 @@ function updateLayerStyle(styleSelect,min,max) {
     return colorMap;
 }
 
+// Función para convertir un color hexadecimal a RGB
 function hexToRgb(hex) {
     const bigint = parseInt(hex.slice(1), 16);
     return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
 }
 
+// Función para interpolar entre dos colores
 function interpolateColors(color1, color2, factor) {
     const result = color1.slice();
     for (let i = 0; i < 3; i++) {
@@ -334,6 +323,7 @@ function interpolateColors(color1, color2, factor) {
     return result;
 }
 
+// Función para generar un mapa de colores personalizado
 function generateCustomColorMap(startColor, endColor, min, max) {
     const startRgb = hexToRgb(startColor);
     const endRgb = hexToRgb(endColor);
@@ -346,10 +336,12 @@ function generateCustomColorMap(startColor, endColor, min, max) {
     }
     return colorMap.flat();
 }
+// Función para mostrar el loader
 function showLoader() {
     document.getElementById('loader').style.display = 'flex';
 }
 
+// Función para ocultar el loader
 function hideLoader() {
     document.getElementById('loader').style.display = 'none';
 }

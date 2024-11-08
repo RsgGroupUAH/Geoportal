@@ -1,5 +1,8 @@
 import { map } from "./map-layers.js";
 
+/**
+ * @fileoverview Este archivo contiene las funciones que controlan la exportación de mapas a PDF.
+ */
 const exportButton = document.getElementById('export-pdf-button');
 
 const dims = {
@@ -7,12 +10,15 @@ const dims = {
     a5: [210, 148],
   };
 
+// Evento de click en el botón de exportar
 exportButton.addEventListener(
   'click',
   function () {
+    // Deshabilitar el botón de exportar y cambiar el cursor
     exportButton.disabled = true;
     document.body.style.cursor = 'progress';
 
+    // Obtener el formato y la resolución del PDF
     const format = document.getElementById('format').value;
     const resolution = document.getElementById('resolution').value;
     const dim = dims[format];
@@ -21,6 +27,7 @@ exportButton.addEventListener(
     const size = map.getSize();
     const viewResolution = map.getView().getResolution();
 
+    // Evento de render completo
     map.once('rendercomplete', function () {
       const mapCanvas = document.createElement('canvas');
       mapCanvas.width = width;
@@ -33,12 +40,12 @@ exportButton.addEventListener(
             const opacity = canvas.parentNode.style.opacity;
             mapContext.globalAlpha = opacity === '' ? 1 : Number(opacity);
             const transform = canvas.style.transform;
-            // Get the transform parameters from the style's transform matrix
+            // Obtener los parámetros de transformación de la matriz de transformación del estilo
             const matrix = transform
               .match(/^matrix\(([^\(]*)\)$/)[1]
               .split(',')
               .map(Number);
-            // Apply the transform to the export map context
+            // Aplicar la transformación al contexto del mapa de exportación
             CanvasRenderingContext2D.prototype.setTransform.apply(
               mapContext,
               matrix
@@ -61,14 +68,14 @@ exportButton.addEventListener(
       );
       pdf = addWaterMark(pdf);
       pdf.save('map.pdf');
-      // Reset original map size
+      // Restablecer el tamaño del mapa
       map.setSize(size);
       map.getView().setResolution(viewResolution);
       exportButton.disabled = false;
       document.body.style.cursor = 'auto';
     });
 
-    // Set print size
+    // Establecer el tamaño del mapa para la impresión
     const printSize = [width, height];
     map.setSize(printSize);
     const scaling = Math.min(width / size[0], height / size[1]);
@@ -76,6 +83,11 @@ exportButton.addEventListener(
   },
   false
 );
+/**
+ * Añadir marca de agua al PDF
+ * @param {*} doc 
+ * @returns 
+ */
 function addWaterMark(doc) {
   var totalPages = doc.internal.getNumberOfPages();
   var i = 0;

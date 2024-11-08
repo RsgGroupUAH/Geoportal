@@ -2,7 +2,11 @@ import { map,createLayerLeyendPanel, destroyLayerLegendPanel } from "./map-layer
 import {eraseFeatures} from "./map-drawing.js";
 import {listRasterLayers} from "./map-operations.js";
 
-//Layer Switcher
+/**
+ * @fileoverview Este archivo contiene las funciones que controlan los controles del mapa, como la escala, el zoom, la posición del ratón, la leyenda, etc.
+ */
+
+//Añade Layer Switcher
 map.addControl(new ol.control.LayerSwitcher({ 
   trash: true, 
   extent: true,
@@ -11,7 +15,7 @@ map.addControl(new ol.control.LayerSwitcher({
   tipLabel: 'Leyenda', // Optional label for button
 }));
 
-//SE declara linea de escala
+//Se declara linea de escala
 const scale = new ol.control.ScaleLine({
 });
 
@@ -60,7 +64,7 @@ projectionSelect.addEventListener('change', function (event) {
   mousePos.setProjection(event.target.value);
 });
 
-
+//Se añade evento para mostrar u ocultar la posición del ratón
 const positionButton = document.getElementById('position-button');
 positionButton.addEventListener('click', function (event) {
   var container = document.getElementById('position-container');
@@ -72,6 +76,7 @@ positionButton.addEventListener('click', function (event) {
  
 });
 
+//Se añade evento para mostrar u ocultar la impresion en pdf
 const printButton = document.getElementById('print-button');
 printButton.addEventListener('click', function (event) {
   var container = document.getElementById('export_pdf');
@@ -83,10 +88,10 @@ printButton.addEventListener('click', function (event) {
  
 });
 
-
+//Se añade evento para mostrar u ocultar la leyenda y la visualización de valores
 const valueButton = document.getElementById('value-button');
 valueButton.addEventListener('click', function (event) {
-  var container = document.getElementById('value_layer');
+  const container = document.getElementById('value_layer');
   if(container.className.includes("hidden")){
     container.className = container.className.replace("hidden","");
     createLayerLeyendPanel();
@@ -97,6 +102,7 @@ valueButton.addEventListener('click', function (event) {
  
 });
 
+//Se añade evento para mostrar u ocultar el panel de herramientas de dibujo y medidas
 const toolsButton = document.getElementById('tools-button');
 toolsButton.addEventListener('click', function (event) {
   var container = document.getElementById('tools-panel');
@@ -109,6 +115,7 @@ toolsButton.addEventListener('click', function (event) {
  
 });
 
+//Se añade evento para mostrar u ocultar el panel de contacto
 const contactButton = document.getElementById('contact-button');
 contactButton.addEventListener('click', function (event) {
   var container = document.getElementById('contact-panel');
@@ -120,6 +127,7 @@ contactButton.addEventListener('click', function (event) {
  
 });
 
+//Se añade evento para mostrar u ocultar el panel de información
 const infoButton = document.getElementById('info-button');
 infoButton.addEventListener('click', function (event) {
   var container = document.getElementById('info-panel');
@@ -131,6 +139,7 @@ infoButton.addEventListener('click', function (event) {
  
 });
 
+//Se añade evento para mostrar u ocultar el panel de operaciones con WCS
 const wcsButton = document.getElementById('wcs-operations-button');
 wcsButton.addEventListener('click', function (event) {
   var container = document.getElementById('wcs-operations-panel');
@@ -157,6 +166,7 @@ wcsButton.addEventListener('click', function (event) {
  
 });
 
+//Se añade evento a los botones de cerrar de los paneles de información, contacto, herramientas, valores y operaciones
 const closeInfoButton = document.getElementById('close-info-button');
 closeInfoButton.addEventListener('click', function (event) {
   closeElement(this);
