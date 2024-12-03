@@ -1,9 +1,15 @@
 import { map } from "./map-layers.js";
 
+/**
+ * @fileoverview Este archivo contiene las funciones que controlan el medidas en el mapa.
+ */
+
+
 const typeSelect = document.getElementById('type');
 const showSegments = document.getElementById('segments');
 const clearPrevious = document.getElementById('clear');
 
+//  Estilos de las geometrías
 const style = new  ol.style.Style({
   fill: new  ol.style.Fill({
     color: 'rgba(255, 255, 255, 0.2)',
@@ -24,6 +30,7 @@ const style = new  ol.style.Style({
   }),
 });
 
+// Estilos de las etiquetas
 const labelStyle = new  ol.style.Style({
   text: new ol.style.Text({
     font: '14px Calibri,sans-serif',
@@ -48,6 +55,7 @@ const labelStyle = new  ol.style.Style({
   }),
 });
 
+// Estilos de las etiquetas
 const tipStyle = new ol.style.Style({
   text: new ol.style.Text({
     font: '12px Calibri,sans-serif',
@@ -63,6 +71,7 @@ const tipStyle = new ol.style.Style({
   }),
 });
 
+// Estilos de las etiquetas
 const modifyStyle = new ol.style.Style({
   image: new ol.style.Circle({
     radius: 5,

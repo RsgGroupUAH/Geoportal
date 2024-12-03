@@ -18400,7 +18400,7 @@ ol.control.WMSCapabilities = class olcontrolWMSCapabilities extends ol.control.B
     li.setAttribute('data-param', 'map')
     li = addLine('formStyle')
     li.setAttribute('data-param', 'style')
-    addLine('formFormat', ['image/png', 'image/jpeg'])
+    addLine('formFormat', ['image/png', 'image/jpeg','image/geotiff','image/tiff','image/geotiff8','image/ tiff8'])
     addLine('formMinZoom', 0)
     addLine('formMaxZoom', 20)
     li = addLine('formExtent', '', 'xmin,ymin,xmax,ymax')
@@ -18438,7 +18438,7 @@ ol.control.WMSCapabilities = class olcontrolWMSCapabilities extends ol.control.B
 
     options.layer.source = new ol.source.TileWMS(options.source)
     var layer = new ol.layer.Tile(options.layer)
-    options.data.keyword.forEach(function(element){
+    /* options.data.keyword.forEach(function(element){
       if(element === 'MedidaUAH'){
         console.log(element)
         var selectMeasure = new ol.interaction.Select({
@@ -18474,7 +18474,7 @@ ol.control.WMSCapabilities = class olcontrolWMSCapabilities extends ol.control.B
         });
         map.addOverlay(popupMeasures);
       }
-    });
+    }); */
     delete options.layer.source
     return layer
   }
@@ -18810,8 +18810,8 @@ ol.control.WMSCapabilities = class olcontrolWMSCapabilities extends ol.control.B
     var formats = parent.Capability.Request.GetMap.Format
     var format, i
     // Look for prefered format first
-    var pref = [/png/, /jpeg/, /gif/]
-    for (i = 0; i < 3; i++) {
+    var pref = [/png/, /jpeg/, /gif/,/geotiff/,/geotiff8/,/tiff/,/tiff8/]
+    for (i = 0; i < 7; i++) {
       for (var f = 0; f < formats.length; f++) {
         if (pref[i].test(formats[f])) {
           format = formats[f]

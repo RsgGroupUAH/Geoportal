@@ -1,6 +1,21 @@
 import { map,createLayerLeyendPanel, destroyLayerLegendPanel } from "./map-layers.js";
+import {eraseFeatures} from "./map-drawing.js";
+import {listRasterLayers} from "./map-operations.js";
 
-//SE declara linea de escala
+/**
+ * @fileoverview Este archivo contiene las funciones que controlan los controles del mapa, como la escala, el zoom, la posición del ratón, la leyenda, etc.
+ */
+
+//Añade Layer Switcher
+map.addControl(new ol.control.LayerSwitcher({ 
+  trash: true, 
+  extent: true,
+  activationMode: 'click',
+  startActive: true,
+  tipLabel: 'Leyenda', // Optional label for button
+}));
+
+//Se declara linea de escala
 const scale = new ol.control.ScaleLine({
 });
 
@@ -49,7 +64,7 @@ projectionSelect.addEventListener('change', function (event) {
   mousePos.setProjection(event.target.value);
 });
 
-
+//Se añade evento para mostrar u ocultar la posición del ratón
 const positionButton = document.getElementById('position-button');
 positionButton.addEventListener('click', function (event) {
   var container = document.getElementById('position-container');
@@ -61,6 +76,7 @@ positionButton.addEventListener('click', function (event) {
  
 });
 
+//Se añade evento para mostrar u ocultar la impresion en pdf
 const printButton = document.getElementById('print-button');
 printButton.addEventListener('click', function (event) {
   var container = document.getElementById('export_pdf');
@@ -72,10 +88,10 @@ printButton.addEventListener('click', function (event) {
  
 });
 
-
+//Se añade evento para mostrar u ocultar la leyenda y la visualización de valores
 const valueButton = document.getElementById('value-button');
 valueButton.addEventListener('click', function (event) {
-  var container = document.getElementById('value_layer');
+  const container = document.getElementById('value_layer');
   if(container.className.includes("hidden")){
     container.className = container.className.replace("hidden","");
     createLayerLeyendPanel();
@@ -86,6 +102,7 @@ valueButton.addEventListener('click', function (event) {
  
 });
 
+//Se añade evento para mostrar u ocultar el panel de herramientas de dibujo y medidas
 const toolsButton = document.getElementById('tools-button');
 toolsButton.addEventListener('click', function (event) {
   var container = document.getElementById('tools-panel');
@@ -93,10 +110,12 @@ toolsButton.addEventListener('click', function (event) {
     container.className = container.className.replace("hidden","");
   }else{
     container.className = container.className + ' hidden';
+    eraseFeatures;
   }
  
 });
 
+//Se añade evento para mostrar u ocultar el panel de contacto
 const contactButton = document.getElementById('contact-button');
 contactButton.addEventListener('click', function (event) {
   var container = document.getElementById('contact-panel');
@@ -108,6 +127,7 @@ contactButton.addEventListener('click', function (event) {
  
 });
 
+//Se añade evento para mostrar u ocultar el panel de información
 const infoButton = document.getElementById('info-button');
 infoButton.addEventListener('click', function (event) {
   var container = document.getElementById('info-panel');
@@ -119,6 +139,34 @@ infoButton.addEventListener('click', function (event) {
  
 });
 
+//Se añade evento para mostrar u ocultar el panel de operaciones con WCS
+const wcsButton = document.getElementById('wcs-operations-button');
+wcsButton.addEventListener('click', function (event) {
+  var container = document.getElementById('wcs-operations-panel');
+  if(container.className.includes("hidden")){
+    container.className = container.className.replace("hidden","");
+    //añado todas las capas raster a los inputs
+    //Se queda comentado para futuras operaciones con WCS
+    /* var rasterLayers = listRasterLayers();
+    var select1 = document.getElementById('operation-layer-one');
+    var select2 = document.getElementById('operation-layer-two');
+    rasterLayers.forEach(layer => {
+      var option1 = document.createElement("option");
+      option1.text = layer.get('title');
+      option1.value = layer.get('title');
+      select1.add(option1);
+      var option2 = document.createElement("option");
+      option2.text = layer.get('title');
+      option2.value = layer.get('title');
+      select2.add(option2);
+    }); */
+  }else{
+    container.className = container.className + ' hidden';
+  }
+ 
+});
+
+//Se añade evento a los botones de cerrar de los paneles de información, contacto, herramientas, valores y operaciones
 const closeInfoButton = document.getElementById('close-info-button');
 closeInfoButton.addEventListener('click', function (event) {
   closeElement(this);
@@ -135,6 +183,24 @@ const closeToolsButton = document.getElementById('close-tools-button');
 closeToolsButton.addEventListener('click', function (event) {
   closeElement(this);
  
+});
+const closeValueButton = document.getElementById('close-value-button');
+closeValueButton.addEventListener('click', function (event) {
+  var container = document.getElementById('value_layer');
+  container.className = container.className + ' hidden';
+  destroyLayerLegendPanel();
+ 
+});
+
+const closeOperationsButton = document.getElementById('close-operations-button');
+closeOperationsButton.addEventListener('click', function (event) {
+  //limpio los inputs
+  var select1 = document.getElementById('operation-layer-one');
+  var select2 = document.getElementById('operation-layer-two');
+  select1.innerHTML = "";
+  select2.innerHTML = "";
+  
+  closeElement(this);
 });
 
 function closeElement(element){
